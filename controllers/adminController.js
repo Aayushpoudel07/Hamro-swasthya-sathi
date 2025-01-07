@@ -1,6 +1,6 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-const genAI = new GoogleGenerativeAI("AIzaSyDntP1pdX3e3zKXrmCHFXvIOR0ed_xI09Q"); 
+const genAI = new GoogleGenerativeAI("AIzaSyAXlF_KdNfmUp0NWf7Knoua1cf4QVLyh-c"); 
 
 
 // admin dashboard
