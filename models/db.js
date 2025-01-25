@@ -1,10 +1,10 @@
-const { Sequelize } = require ('sequelize');
+const { Sequelize } = require('sequelize');
 
 // Create Sequelize instance
-const sequelize = new sequelize('swasthyaSathi', 'root', '',{
-    host: 'localhost',
-    dialect: 'mysql', 
-    logging: false,
+const sequelize = new Sequelize('swasthyaSathi', 'root', '', {
+  host: 'localhost',
+  dialect: 'mysql',
+  logging: false,
 });
 
 // Test the connection

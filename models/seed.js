@@ -12,6 +12,7 @@ async function seed() {
             contact: '9999999999',
             password: adminPassword,
             role: 'admin',
+            createdAt: '2024-11-11 12:12:34'
         },
         {
             name: 'User',
@@ -19,6 +20,7 @@ async function seed() {
             contact: '9999999999',
             password: userPassword,
             role: 'user',
+            createdAt: '2024-12-21 12:12:34'
         },
         {
             name: 'Hospital',
@@ -26,6 +28,7 @@ async function seed() {
             contact: '9999999999',
             password: userPassword,
             role: 'hospital',
+            createdAt: '2025-01-03 12:12:34'
         },
         {
             name: 'Doctor',
@@ -34,6 +37,7 @@ async function seed() {
             password: userPassword,
             role: 'doctor',
             hospitalId: 3,
+            createdAt: '2025-01-03 12:12:34'
         },
     ]);
 

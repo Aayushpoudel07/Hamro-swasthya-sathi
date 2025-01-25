@@ -6,7 +6,9 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING
         },
         email: {
-            type: Sequelize.STRING
+            type: Sequelize.STRING,
+            unique: true,  
+            allowNull: false, 
         },
         contact: {
             type: Sequelize.STRING,
@@ -27,6 +29,18 @@ module.exports = (sequelize, Sequelize) => {
         role: {
             type: Sequelize.ENUM('user', 'hospital', 'doctor', 'admin'),
             defaultValue: 'user'
+        },
+        image:{
+            type:Sequelize.STRING,
+            allowNull:true
+        },
+        description:{
+            type:Sequelize.STRING,
+            allowNull:true
+        },
+        address:{
+            type:Sequelize.STRING,
+            allowNull:true
         }
     });
 

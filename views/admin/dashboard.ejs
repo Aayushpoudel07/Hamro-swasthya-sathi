@@ -1,6 +1,98 @@
-<h1>Admin Dashboard</h1>
-<form action="/admin/answer" method="POST">
-    <label for="question">Describe Your Symptoms:</label><br>
-    <textarea id="question" name="question" rows="5" cols="50" required></textarea><br><br>
-    <button type="submit">Submit</button>
-</form>
+<div class="row mb-4 mt-4">
+    <!-- Users Count Card -->
+    <div class="col-md-3 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-info text-white">
+                <h5 class="card-title">Users</h5>
+            </div>
+            <div class="card-body">
+                <h3 class="text-center"><%= userCount %></h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Doctors Count Card -->
+    <div class="col-md-3 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-success text-white">
+                <h5 class="card-title">Doctors</h5>
+            </div>
+            <div class="card-body">
+                <h3 class="text-center"><%= doctorCount %></h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hospitals Count Card -->
+    <div class="col-md-3 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-warning text-white">
+                <h5 class="card-title">Hospitals</h5>
+            </div>
+            <div class="card-body">
+                <h3 class="text-center"><%= hospitalCount %></h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Appointments Count Card -->
+    <div class="col-md-3 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-danger text-white">
+                <h5 class="card-title">Appointments</h5>
+            </div>
+            <div class="card-body">
+                <h3 class="text-center"><%= appointmentCount %></h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="card-title">User Registrations Over Time</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="userRegistrationsChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('userRegistrationsChart').getContext('2d');
+  const userRegistrationsChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: <%- JSON.stringify(labels) %>, // Month labels from backend
+      datasets: [{
+        label: 'User Registrations',
+        data: <%- JSON.stringify(data) %>,  // Registration counts from backend
+        borderColor: '#4e73df',
+        backgroundColor: 'rgba(78, 115, 223, 0.1)',
+        tension: 0.1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        x: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Month'
+          }
+        },
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Registrations'
+          }
+        }
+      }
+    }
+  });
+</script>
