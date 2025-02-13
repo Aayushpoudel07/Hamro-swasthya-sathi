@@ -1,0 +1,39 @@
+1<!-- Section -->
+<section class="py-5 bg-light">
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold">All Doctors</h2>
+                <p class="text-muted">Meet our top-rated specialists across various fields.</p>
+            </div>
+            <div class="row">
+                <% doctors.forEach((user, index)=> { %>
+
+                    <!-- Doctor 1 -->
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card shadow h-100">
+                            <img src="<%= user.image %>" class="card-img-top rounded-circle mx-auto mt-3"
+                                style="width: 150px; height: 150px; object-fit: cover;" alt="Doctor 1">
+                            <div class="card-body text-center">
+                                <a href="/list/<%= user.id %>">
+
+                                <h5 class="card-title">
+                                    <%= user.name %>
+                                </h5>
+                                </a>
+                                    <p class="text-primary">
+                                        <%= user.speciality %>
+                                    </p>
+                                <p class="mb-0">
+                                    <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                                    (7)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% }) %>
+            </div>
+        </div>
+    </section>
+</section>

@@ -63,7 +63,7 @@ const authRoutes = require('./routes/authRoutes');
 const doctorRoutes = require('./routes/doctorRoutes');
 const hospitalRoutes = require('./routes/hospitalRoutes');
 const userRoutes = require('./routes/userRoutes');
-
+const appointmentRoutes = require('./routes/appointment');
 
 
 app.use('/', frontendRoutes);
@@ -72,7 +72,7 @@ app.use('/auth', authRoutes);
 app.use('/doctor', doctorRoutes);
 app.use('/hospital', hospitalRoutes);
 app.use('/user', userRoutes);
-
+app.use('/appointment', appointmentRoutes);
 
 
 // Sync models before starting the server

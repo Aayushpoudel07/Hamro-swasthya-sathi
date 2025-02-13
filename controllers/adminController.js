@@ -162,3 +162,21 @@ exports.createDoctors = async (req, res) => {
     return;
   }
 };
+
+
+// View all appointments for admin
+exports.viewAppointments = async (req, res) => {
+  try {
+      const appointments = await Appointment.findAll({
+          // include: [
+          //     { model: Users, as: 'doctor', attributes: ['name', 'speciality'] }, // Include doctor's details
+          //     { model: Users, as: 'user', attributes: ['name', 'email'] }  // Include user's details
+          // ]
+      });
+
+      res.render('admin/appointment', { appointments });
+  } catch (error) {
+      console.error(error);
+      res.status(500).send("Error fetching appointments");
+  }
+};

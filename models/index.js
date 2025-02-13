@@ -9,6 +9,7 @@ db.sequelize = sequelize;
 
 // Import models
 db.Users = require('./user')(sequelize, Sequelize);
+db.Appointment = require('./appointment')(sequelize, Sequelize);
 
 // Function to sync all models
 db.syncModels = async () => {

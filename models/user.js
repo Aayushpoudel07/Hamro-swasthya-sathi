@@ -41,6 +41,15 @@ module.exports = (sequelize, Sequelize) => {
         address:{
             type:Sequelize.STRING,
             allowNull:true
+        },
+        featured:{
+            type:Sequelize.BOOLEAN,
+            allowNull:true,
+            defaultValue:false
+        },
+        speciality:{
+            type:Sequelize.STRING,
+            allowNull:true
         }
     });
 

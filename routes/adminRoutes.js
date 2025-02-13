@@ -12,4 +12,6 @@ router.get('/create-hospital', authMiddleware, adminController.createHospital);
 router.post('/create-hospital', authMiddleware, adminController.createHospitals);
 router.get('/create-doctor', authMiddleware, adminController.createDoctor);
 router.post('/create-doctor', authMiddleware, adminController.createDoctors);
+router.get('/appointments', authMiddleware, adminController.viewAppointments);
+
 module.exports = router;

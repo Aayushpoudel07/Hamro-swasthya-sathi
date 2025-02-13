@@ -1,0 +1,56 @@
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="doctor-details">
+            <div class="row">
+                <!-- Doctor Information Column -->
+                <div class="col-lg-6 mb-4">
+                    <div class="doctor-card shadow-sm p-4 bg-white rounded">
+                        <img src="<%= doctor.image || '/images/default-doctor.jpg' %>" alt="Doctor Image" class="doctor-img rounded-circle mx-auto d-block" style="width: 150px; height: 150px; object-fit: cover;">
+                        <h2 class="text-center mt-3"><%= doctor.name %></h2>
+                        <p><strong>Specialty:</strong> <%= doctor.speciality %></p>
+                        <p><strong>Contact:</strong> <%= doctor.contact %></p>
+                        <p><strong>Address:</strong> <%= doctor.address %></p>
+                        <p><strong>Description:</strong> <%= doctor.description %></p>
+                    </div>
+                </div>
+
+                <!-- Appointment Booking Form Column -->
+                <div class="col-lg-6 mb-4">
+                    <div class="appointment-form shadow-sm p-4 bg-white rounded">
+                        <h3>Book an Appointment</h3>
+                        <form action="/appointment" method="POST">
+                            <input type="hidden" name="doctorId" value="<%= doctor.id %>">
+
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Your Name:</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Your Email:</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="date" class="form-label">Preferred Date:</label>
+                                <input type="date" id="date" name="date" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="time" class="form-label">Preferred Time:</label>
+                                <input type="time" id="time" name="time" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Reason for Appointment:</label>
+                                <textarea id="description" name="description" class="form-control" rows="3"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Book Appointment</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
