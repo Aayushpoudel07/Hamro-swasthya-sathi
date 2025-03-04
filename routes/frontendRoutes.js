@@ -7,5 +7,7 @@ router.get('/', frontendController.index);
 router.get('/about', frontendController.about);
 router.get('/list', frontendController.doctors);
 router.get('/list/:id', frontendController.doctorDetails);
+router.get('/contact', frontendController.contact);
+router.post('/search',frontendController.search);
 
 module.exports = router;

@@ -20,6 +20,19 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: true,
             default: null
         },
+
+        name: {
+            type: Sequelize.STRING,
+            allowNull: true
+        },
+        email: {
+            type: Sequelize.STRING,
+            allowNull: true
+        },
+        contact: {
+            type: Sequelize.STRING,
+            allowNull: true
+        },
         
         description:{
             type:Sequelize.STRING,

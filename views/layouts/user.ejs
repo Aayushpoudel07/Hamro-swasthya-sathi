@@ -21,7 +21,6 @@
 
         #header {
             position: fixed;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             top: 0;
             left: 0;
             width: 100%;
@@ -33,6 +32,16 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            flex-grow: 1;
+            margin-left: 20px;
+        }
+
+        .navbar-nav {
+            margin: auto;
         }
 
         .dropdown-menu {
@@ -47,24 +56,16 @@
         }
 
         @media (max-width: 768px) {
-            #sidebar {
-                position: fixed;
-                width: 200px;
-                transform: translateX(-200px);
-                transition: transform 0.3s ease;
-            }
-
-            #sidebar.show {
-                transform: translateX(0);
-            }
-
-            .content {
-                margin-left: 0;
-            }
-
             .toggle-btn {
                 display: block;
                 cursor: pointer;
+            }
+
+            .navbar-collapse {
+                background-color: #fff;
+                padding: 10px;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             }
         }
     </style>
@@ -83,6 +84,20 @@
             </div>
             <h4 class="ms-3 mb-0">Dashboard</h4>
         </div>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav text-center">
+                        <li class="nav-item"><a class="nav-link" href="#symptomSection">Symptoms</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#appointmentStatus">Appointments</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#appointmentHistory">History</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <div class="dropdown">
             <a class="d-flex align-items-center text-decoration-none text-dark dropdown-toggle" href="#" role="button"
                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -113,6 +128,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 </body>
-
 
 </html>

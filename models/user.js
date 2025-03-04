@@ -14,15 +14,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: true,
         },
-        hospitalId: {
-            type: Sequelize.INTEGER,
-            references: {
-                model: 'users',
-                key: 'id',
-            },
-            allowNull: true,
-            default: null
-        },
+       
         password: {
             type: Sequelize.STRING,
         },

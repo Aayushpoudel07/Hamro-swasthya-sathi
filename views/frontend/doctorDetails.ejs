@@ -1,56 +1,109 @@
-<section class="py-5 bg-light">
+<section class="py-5 doctor-details-section" style="background: linear-gradient(to right, #6a11cb, #2575fc); ">
     <div class="container">
         <div class="doctor-details">
-            <div class="row">
+            <div class="row justify-content-center">
+
                 <!-- Doctor Information Column -->
-                <div class="col-lg-6 mb-4">
-                    <div class="doctor-card shadow-sm p-4 bg-white rounded">
-                        <img src="<%= doctor.image || '/images/default-doctor.jpg' %>" alt="Doctor Image" class="doctor-img rounded-circle mx-auto d-block" style="width: 150px; height: 150px; object-fit: cover;">
-                        <h2 class="text-center mt-3"><%= doctor.name %></h2>
-                        <p><strong>Specialty:</strong> <%= doctor.speciality %></p>
-                        <p><strong>Contact:</strong> <%= doctor.contact %></p>
-                        <p><strong>Address:</strong> <%= doctor.address %></p>
-                        <p><strong>Description:</strong> <%= doctor.description %></p>
+                <div class="col-lg-5 mb-4">
+                    <div class="doctor-card shadow-lg p-4 bg-white rounded-4 text-center">
+                        <img src="<%= doctor.image || '/images/default-doctor.jpg' %>" alt="Doctor Image"
+                            class="doctor-img rounded-circle mx-auto d-block shadow-lg"
+                            style="width: 160px; height: 160px; object-fit: cover; border: 5px solid #6a11cb;">
+                        <h2 class="mt-3 text-dark fw-bold">
+                            <%= doctor.name %>
+                        </h2>
+                        <p class="text-primary fw-semibold">
+                            <%= doctor.speciality %>
+                        </p>
+                        <p><i class="fas fa-phone"></i> <strong>Contact:</strong>
+                            <%= doctor.contact %>
+                        </p>
+                        <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong>
+                            <%= doctor.address %>
+                        </p>
+                        <p class="text-muted"><strong>Description:</strong>
+                            <%= doctor.description %>
+                        </p>
+                        <div class="mt-3">
+                            <a href="#" class="btn btn-outline-primary btn-sm rounded-pill px-3"><i
+                                    class="fab fa-facebook"></i></a>
+                            <a href="#" class="btn btn-outline-info btn-sm rounded-pill px-3"><i
+                                    class="fab fa-twitter"></i></a>
+                            <a href="#" class="btn btn-outline-danger btn-sm rounded-pill px-3"><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Appointment Booking Form Column -->
-                <div class="col-lg-6 mb-4">
-                    <div class="appointment-form shadow-sm p-4 bg-white rounded">
-                        <h3>Book an Appointment</h3>
+                <div class="col-lg-5 mb-4">
+                    <div class="appointment-form shadow-lg p-4 bg-white rounded-4">
+                        <h3 class="text-center fw-bold text-dark">Book an Appointment</h3>
                         <form action="/appointment" method="POST">
                             <input type="hidden" name="doctorId" value="<%= doctor.id %>">
 
                             <div class="mb-3">
-                                <label for="name" class="form-label">Your Name:</label>
-                                <input type="text" id="name" name="name" class="form-control" required>
+                                <label for="name" class="form-label fw-semibold">Your Name:</label>
+                                <input type="text" id="name" name="name" class="form-control rounded-3" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="email" class="form-label">Your Email:</label>
-                                <input type="email" id="email" name="email" class="form-control" required>
+                                <label for="email" class="form-label fw-semibold">Your Email:</label>
+                                <input type="email" id="email" name="email" class="form-control rounded-3" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="date" class="form-label">Preferred Date:</label>
-                                <input type="date" id="date" name="date" class="form-control" required>
+                                <label for="contact" class="form-label fw-semibold">Your Contact:</label>
+                                <input type="number" id="contact" name="contact" class="form-control rounded-3"
+                                    required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="time" class="form-label">Preferred Time:</label>
-                                <input type="time" id="time" name="time" class="form-control" required>
+                                <label for="date" class="form-label fw-semibold">Preferred Date:</label>
+                                <input type="date" id="date" name="date" class="form-control rounded-3" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="description" class="form-label">Reason for Appointment:</label>
-                                <textarea id="description" name="description" class="form-control" rows="3"></textarea>
+                                <label for="time" class="form-label fw-semibold">Preferred Time:</label>
+                                <input type="time" id="time" name="time" class="form-control rounded-3" required>
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Book Appointment</button>
+                            <div class="mb-3">
+                                <label for="description" class="form-label fw-semibold">Reason for Appointment:</label>
+                                <textarea id="description" name="description" class="form-control rounded-3"
+                                    rows="3"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100 rounded-pill py-2 fw-bold">Book
+                                Appointment</button>
                         </form>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
 </section>
+<style>
+    .doctor-card,
+    .appointment-form {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .doctor-card:hover,
+    .appointment-form:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .doctor-img {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .doctor-img:hover {
+        transform: scale(1.1);
+    }
+    .doctor-details-section{
+        margin-top: 4rem;
+    }
+</style>

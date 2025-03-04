@@ -1,9 +1,156 @@
+<style>
+    /* Hero Section Styling */
+    .hero-section {
+        position: relative;
+        background: url('https://techcentral.co.za/wp-content/uploads/2024/09/intersystems-ai-in-healthcare-1500-800.jpg') no-repeat center center/cover;
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #fff;
+        overflow: hidden;
+    }
+
+    /* Dark overlay for better readability */
+    .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        /* Dark overlay */
+    }
+
+    /* Glassmorphism Effect */
+    .hero-text {
+        position: relative;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 30px;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        animation: fadeInUp 1s ease-in-out;
+        max-width: 600px;
+    }
+
+    /* Smooth Fade-In Animation */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Search Field Styling */
+    .search-field {
+        max-width: 500px;
+        margin-top: 20px;
+    }
+
+    .search-field .form-control {
+        border-radius: 30px 0 0 30px;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .search-field .btn-primary {
+        border-radius: 0 30px 30px 0;
+        font-weight: bold;
+        padding: 12px 20px;
+        background: #f8d210;
+        border: none;
+        color: #000;
+    }
+
+    .search-field .btn-primary:hover {
+        background: #ffcc00;
+    }
+
+    /* General Styles */
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    /* Service Section */
+    .card {
+        border: none;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        border-radius: 12px;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Icon Styling */
+    .icon i {
+        transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+
+    .card:hover .icon i {
+        transform: rotate(10deg) scale(1.1);
+    }
+
+    /* Category Section */
+    .card-img {
+        border-radius: 12px;
+        transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+    }
+
+    .card:hover .card-img {
+        transform: scale(1.05);
+        filter: brightness(80%);
+    }
+
+    .card-img-overlay {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
+        border-radius: 12px;
+    }
+
+    /* CTA Section */
+    .bg-primary {
+        background: linear-gradient(135deg, #007bff, #6610f2);
+        animation: glow 2s infinite alternate;
+        border-radius: 0px;
+    }
+
+    @keyframes glow {
+        from {
+            box-shadow: 0px 0px 20px rgba(0, 123, 255, 0.6);
+        }
+
+        to {
+            box-shadow: 0px 0px 30px rgba(0, 123, 255, 0.9);
+        }
+    }
+
+    .btn-light {
+        border-radius: 30px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .btn-light:hover {
+        background-color: #fff;
+        color: #007bff;
+        transform: scale(1.1);
+    }
+</style>
 
 <!-- Hero Section -->
 <div class="hero-section">
     <div class="container text-center">
         <div class="hero-text">
-            <h1 class="display-4">Welcome to Our Service</h1>
+            <h1 class="display-4 fw-bold">Welcome to Our Service</h1>
             <p class="lead">Find the best solutions tailored for your needs. Start your journey with us today!</p>
             <div class="search-field mx-auto">
                 <form>
@@ -16,6 +163,7 @@
         </div>
     </div>
 </div>
+
 
 <!-- Services Section -->
 <section class="py-5 bg-light">
@@ -88,180 +236,113 @@
 <section class="py-5 bg-light">
     <div class="container">
         <div class="text-center mb-4">
-            <h2 class="fw-bold">Our Categories</h2>
-            <p class="text-muted">Explore our diverse range of categories.</p>
+            <h2 class="fw-bold">Top Doctor Specialties</h2>
+            <p class="text-muted">Explore specialized healthcare fields and find the right doctor for your needs.</p>
         </div>
         <div class="row">
-            <!-- Category 1 -->
+            <!-- Cardiology -->
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card shadow position-relative text-white">
                     <div class="card-img-overlay bg-dark bg-opacity-50 d-flex flex-column justify-content-center">
-                        <h5 class="card-title text-center">Category One</h5>
-                        <p class="card-text text-center">Discover amazing opportunities in this category.</p>
+                        <h5 class="card-title text-center">Cardiologist</h5>
+                        <p class="card-text text-center">Heart & Vascular Specialist</p>
                     </div>
-                    <img src="https://via.placeholder.com/400x300" class="card-img" alt="Category One">
+                    <img src="https://picsum.photos/200/300" class="card-img" alt="Cardiology">
                 </div>
             </div>
 
-            <!-- Category 2 -->
+            <!-- Dermatology -->
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card shadow position-relative text-white">
                     <div class="card-img-overlay bg-dark bg-opacity-50 d-flex flex-column justify-content-center">
-                        <h5 class="card-title text-center">Category Two</h5>
-                        <p class="card-text text-center">Explore resources and opportunities in this field.</p>
+                        <h5 class="card-title text-center">Dermatologist</h5>
+                        <p class="card-text text-center">Skin, Hair & Nail Specialist</p>
                     </div>
-                    <img src="https://via.placeholder.com/400x300" class="card-img" alt="Category Two">
+                    <img src="https://picsum.photos/200/300" class="card-img" alt="Dermatology">
                 </div>
             </div>
 
-            <!-- Category 3 -->
+            <!-- Neurology -->
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card shadow position-relative text-white">
                     <div class="card-img-overlay bg-dark bg-opacity-50 d-flex flex-column justify-content-center">
-                        <h5 class="card-title text-center">Category Three</h5>
-                        <p class="card-text text-center">Find the best solutions for your needs here.</p>
+                        <h5 class="card-title text-center">Neurologist</h5>
+                        <p class="card-text text-center">Brain & Nervous System Expert</p>
                     </div>
-                    <img src="https://via.placeholder.com/400x300" class="card-img" alt="Category Three">
+                    <img src="https://picsum.photos/200/300" class="card-img" alt="Neurology">
                 </div>
             </div>
 
-            <!-- Category 4 -->
+            <!-- Orthopedic -->
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card shadow position-relative text-white">
                     <div class="card-img-overlay bg-dark bg-opacity-50 d-flex flex-column justify-content-center">
-                        <h5 class="card-title text-center">Category Four</h5>
-                        <p class="card-text text-center">Discover insights and opportunities in this domain.</p>
+                        <h5 class="card-title text-center">Orthopedic Surgeon</h5>
+                        <p class="card-text text-center">Bone & Joint Specialist</p>
                     </div>
-                    <img src="https://via.placeholder.com/400x300" class="card-img" alt="Category Four">
+                    <img src="https://picsum.photos/200/300" class="card-img" alt="Orthopedic">
                 </div>
             </div>
 
-            <!-- Category 5 -->
+            <!-- Pediatrician -->
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card shadow position-relative text-white">
                     <div class="card-img-overlay bg-dark bg-opacity-50 d-flex flex-column justify-content-center">
-                        <h5 class="card-title text-center">Category Five</h5>
-                        <p class="card-text text-center">Expand your knowledge with this category.</p>
+                        <h5 class="card-title text-center">Pediatrician</h5>
+                        <p class="card-text text-center">Child Health Specialist</p>
                     </div>
-                    <img src="https://via.placeholder.com/400x300" class="card-img" alt="Category Five">
+                    <img src="https://picsum.photos/200/300" class="card-img" alt="Pediatrician">
                 </div>
             </div>
 
-            <!-- Category 6 -->
+            <!-- Ophthalmology -->
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card shadow position-relative text-white">
                     <div class="card-img-overlay bg-dark bg-opacity-50 d-flex flex-column justify-content-center">
-                        <h5 class="card-title text-center">Category Six</h5>
-                        <p class="card-text text-center">Learn and grow with resources from this category.</p>
+                        <h5 class="card-title text-center">Ophthalmologist</h5>
+                        <p class="card-text text-center">Eye & Vision Specialist</p>
                     </div>
-                    <img src="https://via.placeholder.com/400x300" class="card-img" alt="Category Six">
+                    <img src="https://picsum.photos/200/300" class="card-img" alt="Ophthalmology">
                 </div>
             </div>
 
-            <!-- Category 7 -->
+            <!-- Psychiatry -->
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card shadow position-relative text-white">
                     <div class="card-img-overlay bg-dark bg-opacity-50 d-flex flex-column justify-content-center">
-                        <h5 class="card-title text-center">Category Seven</h5>
-                        <p class="card-text text-center">Discover opportunities for growth and success.</p>
+                        <h5 class="card-title text-center">Psychiatrist</h5>
+                        <p class="card-text text-center">Mental Health Specialist</p>
                     </div>
-                    <img src="https://via.placeholder.com/400x300" class="card-img" alt="Category Seven">
+                    <img src="https://picsum.photos/200/300" class="card-img" alt="Psychiatry">
                 </div>
             </div>
 
-            <!-- Category 8 -->
+            <!-- Gynecology -->
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card shadow position-relative text-white">
                     <div class="card-img-overlay bg-dark bg-opacity-50 d-flex flex-column justify-content-center">
-                        <h5 class="card-title text-center">Category Eight</h5>
-                        <p class="card-text text-center">Uncover opportunities in this diverse category.</p>
+                        <h5 class="card-title text-center">Gynecologist</h5>
+                        <p class="card-text text-center">Women's Health Specialist</p>
                     </div>
-                    <img src="https://via.placeholder.com/400x300" class="card-img" alt="Category Eight">
+                    <img src="https://picsum.photos/200/300" class="card-img" alt="Gynecology">
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- Featured Hospitals Section -->
-<section class="py-5 bg-light">
-    <div class="container">
-        <div class="text-center mb-4">
-            <h2 class="fw-bold">Featured Hospitals</h2>
-            <p class="text-muted">Explore top-rated hospitals with specialized services.</p>
-        </div>
-        <div class="row">
-            <!-- Hospital 1 -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card shadow h-100">
-                    <img src="https://www.dyinginamerica.org/wp-content/uploads/2015/10/calvary_hospital_nyc-e1444685202114.jpg" class="card-img-top" alt="Hospital 1">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Calvary Hospital</h5>
-                        <p class="text-primary">CARDIAC SURGERY</p>
-                        <p class="mb-0">
-                            <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                            (5)
-                        </p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Hospital 2 -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card shadow h-100">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzEt1vZ8t3wu8PIe4Vmy2kzh__xncfM1g1p2vUfjGer36ylTvjSRLPOvBqS1lBPtkWJgI&usqp=CAU" class="card-img-top" alt="Hospital 2">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Duke Hospital</h5>
-                        <p class="text-primary">CARDIAC SURGERY</p>
-                        <p class="mb-0">
-                            <span class="text-warning">&#9733;&#9733;&#9733;&#9734;&#9734;</span>
-                            (3)
-                        </p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Hospital 3 -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card shadow h-100">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO3J_Fg6_3koNTO4o8f41VjPZAVyKzvw8nRg&s" class="card-img-top" alt="Hospital 3">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">NYU Medical Center</h5>
-                        <p class="text-primary">CARDIOLOGY</p>
-                        <p class="mb-0">
-                            <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                            (4)
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Hospital 4 -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card shadow h-100">
-                    <img src="https://images.squarespace-cdn.com/content/v1/627d3aef9231bb2eaf700fc9/a2f8bcc2-6a38-465a-b84c-2a48da3abe47/SinaiMed_crop.jpg" class="card-img-top" alt="Hospital 4">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Mount Sinai Hospital</h5>
-                        <p class="text-primary">CARDIOLOGY</p>
-                        <p class="mb-0">
-                            <span class="text-warning">&#9733;&#9734;&#9734;&#9734;&#9734;</span>
-                            (1)
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <!-- Call to Action Section -->
 <section class="py-5 bg-primary text-white text-center">
     <div class="container">
         <h2 class="fw-bold">Ready to Book Your Appointment?</h2>
         <p class="mb-4">Take the first step towards your health and well-being. Connect with top specialists and get
             the care you deserve.</p>
-        <a href="#book-appointment" class="btn btn-light btn-lg fw-bold px-4 py-2">Book Appointment</a>
+        <a href="/list" class="btn btn-light btn-lg fw-bold px-4 py-2">Book Appointment</a>
     </div>
 </section>
 
+<!-- Featured Doctors Section -->
 <!-- Featured Doctors Section -->
 <section class="py-5 bg-light">
     <div class="container">
@@ -270,92 +351,52 @@
             <p class="text-muted">Meet our top-rated specialists across various fields.</p>
         </div>
         <div class="row">
-            <!-- Doctor 1 -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card shadow h-100">
-                    <img src="https://thumbs.dreamstime.com/b/young-male-doctor-close-up-happy-looking-camera-56751540.jpg" class="card-img-top rounded-circle mx-auto mt-3"
-                         style="width: 150px; height: 150px; object-fit: cover;" alt="Doctor 1">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Dr. Keri Peterson MD</h5>
-                        <p class="text-primary">CARDIOLOGY</p>
-                        <p class="mb-0">
-                            <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                            (7)
-                        </p>
+            <% doctors.forEach(doctor => { %>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card shadow h-100">
+                        <img src="<%= doctor.image %>" class="card-img-top rounded-circle mx-auto mt-3"
+                            style="width: 150px; height: 150px; object-fit: cover;" alt="<%= doctor.name %>">
+                        <div class="card-body text-center">
+                            <h5 class="card-title"><%= doctor.name %></h5>
+                            <p class="text-primary"><%= doctor.speciality.toUpperCase() %></p>
+                            <p class="mb-0">
+                                <span class="text-warning">
+                                    <% for (let i = 0; i < Math.floor(doctor.rating); i++) { %>
+                                        &#9733;
+                                    <% } %>
+                                    <% for (let i = Math.floor(doctor.rating); i < 5; i++) { %>
+                                        &#9734;
+                                    <% } %>
+                                </span>
+                                (NA)
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Doctor 2 -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card shadow h-100">
-                    <img src="https://static.vecteezy.com/system/resources/previews/028/287/384/non_2x/a-mature-indian-male-doctor-on-a-white-background-ai-generated-photo.jpg" class="card-img-top rounded-circle mx-auto mt-3"
-                         style="width: 150px; height: 150px; object-fit: cover;" alt="Doctor 2">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Dr. Steven P. Leon</h5>
-                        <p class="text-primary">GYNAECOLOGY</p>
-                        <p class="mb-0">
-                            <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                            (7)
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Doctor 3 -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card shadow h-100">
-                    <img src="https://plus.unsplash.com/premium_photo-1664475450083-5c9eef17a191?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZmVtYWxlJTIwZG9jdG9yfGVufDB8fDB8fHww" class="card-img-top rounded-circle mx-auto mt-3"
-                         style="width: 150px; height: 150px; object-fit: cover;" alt="Doctor 3">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Dr.Jane godall</h5>
-                        <p class="text-primary">CARDIOLOGY</p>
-                        <p class="mb-0">
-                            <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                            (7)
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Doctor 4 -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card shadow h-100">
-                    <img src="https://imgcdn.stablediffusionweb.com/2024/9/28/a6a1ac2c-2a55-4592-8b4c-8ce2138c8807.jpg" class="card-img-top rounded-circle mx-auto mt-3"
-                         style="width: 150px; height: 150px; object-fit: cover;" alt="Doctor 4">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Dr. Ramin Rak</h5>
-                        <p class="text-primary">GYNAECOLOGY</p>
-                        <p class="mb-0">
-                            <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                            (1)
-                        </p>
-                    </div>
-                </div>
-            </div>
+            <% }); %>
         </div>
     </div>
 </section>
+
 <!-- Testimonial Slider Section -->
 <section class="py-5 bg-light">
     <div class="container">
         <div class="text-center mb-4">
-            <h2 class="fw-bold">What Our Patients Say</h2>
-            <p class="text-muted">See what our happy patients have to say about our services.</p>
+            <h2 class="fw-bold text-primary">What Our Patients Say</h2>
+            <p class="text-muted fs-5">See what our happy patients have to say about our services.</p>
         </div>
         <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <!-- Testimonial 1 -->
                 <div class="carousel-item active">
                     <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <div class="card shadow border-0">
+                        <div class="col-lg-6">
+                            <div class="card shadow border-0 rounded-3">
                                 <div class="card-body text-center">
-                                    <img src="https://via.placeholder.com/100" alt="Patient 1"
-                                         class="rounded-circle mb-3"
-                                         style="width: 100px; height: 100px; object-fit: cover;">
-                                    <p class="fs-5 text-muted">"The doctors here are amazing. They really care about
-                                        your health and well-being!"</p>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/219/219988.png" alt="Patient 1"
+                                        class="rounded-circle mb-3"
+                                        style="width: 120px; height: 120px; object-fit: cover; border: 3px solid #007bff;">
+                                    <p class="fs-4 text-muted mb-4">"The doctors here are amazing. They really care about your health and well-being!"</p>
                                     <h5 class="fw-bold">John Doe</h5>
                                     <p class="text-primary mb-0">Cardiology Patient</p>
                                 </div>
@@ -366,14 +407,13 @@
                 <!-- Testimonial 2 -->
                 <div class="carousel-item">
                     <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <div class="card shadow border-0">
+                        <div class="col-lg-6">
+                            <div class="card shadow border-0 rounded-3">
                                 <div class="card-body text-center">
-                                    <img src="https://via.placeholder.com/100" alt="Patient 2"
-                                         class="rounded-circle mb-3"
-                                         style="width: 100px; height: 100px; object-fit: cover;">
-                                    <p class="fs-5 text-muted">"Excellent service and care. I highly recommend this
-                                        clinic to everyone."</p>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/219/219988.png" alt="Patient 2"
+                                        class="rounded-circle mb-3"
+                                        style="width: 120px; height: 120px; object-fit: cover; border: 3px solid #28a745;">
+                                    <p class="fs-4 text-muted mb-4">"Excellent service and care. I highly recommend this clinic to everyone."</p>
                                     <h5 class="fw-bold">Jane Smith</h5>
                                     <p class="text-primary mb-0">Gynecology Patient</p>
                                 </div>
@@ -384,14 +424,13 @@
                 <!-- Testimonial 3 -->
                 <div class="carousel-item">
                     <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <div class="card shadow border-0">
+                        <div class="col-lg-6">
+                            <div class="card shadow border-0 rounded-3">
                                 <div class="card-body text-center">
-                                    <img src="https://via.placeholder.com/100" alt="Patient 3"
-                                         class="rounded-circle mb-3"
-                                         style="width: 100px; height: 100px; object-fit: cover;">
-                                    <p class="fs-5 text-muted">"I felt truly cared for. The team is so professional
-                                        and kind."</p>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/219/219988.png" alt="Patient 3"
+                                        class="rounded-circle mb-3"
+                                        style="width: 120px; height: 120px; object-fit: cover; border: 3px solid #dc3545;">
+                                    <p class="fs-4 text-muted mb-4">"I felt truly cared for. The team is so professional and kind."</p>
                                     <h5 class="fw-bold">Robert Brown</h5>
                                     <p class="text-primary mb-0">Orthopedic Patient</p>
                                 </div>
@@ -402,18 +441,66 @@
             </div>
             <!-- Carousel Controls -->
             <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
-                    data-bs-slide="prev">
+                data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
-                    data-bs-slide="next">
+                data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
     </div>
 </section>
+
+<!-- CSS Styling -->
+<style>
+    .carousel-inner {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .card {
+        background-color: #ffffff;
+        border-radius: 15px;
+    }
+
+    .card-body {
+        padding: 30px;
+    }
+
+    .card-body h5 {
+        font-size: 1.25rem;
+        color: #333;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: #007bff;
+    }
+
+    .carousel-item {
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-indicators {
+        bottom: -30px;
+    }
+
+    .carousel-indicators button {
+        background-color: #007bff;
+    }
+
+    .carousel-indicators .active {
+        background-color: #28a745;
+    }
+
+    .carousel-item img {
+        border-radius: 50%;
+    }
+</style>
+
 
 
 <!-- Our News Section -->
@@ -427,7 +514,7 @@
             <!-- News Item 1 -->
             <div class="col-md-4 mb-4">
                 <div class="card shadow border-0">
-                    <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="News 1">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScpOVm0xBWbWub9-KJXgfKUm-vbUoTRdroDA&s" class="card-img-top" alt="News 1">
                     <div class="card-body">
                         <h5 class="card-title">Breaking News: New Cardiology Treatments</h5>
                         <p class="card-text">Our clinic introduces new advanced treatments for heart disease. Learn
@@ -440,7 +527,7 @@
             <!-- News Item 2 -->
             <div class="col-md-4 mb-4">
                 <div class="card shadow border-0">
-                    <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="News 2">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScpOVm0xBWbWub9-KJXgfKUm-vbUoTRdroDA&s" class="card-img-top" alt="News 2">
                     <div class="card-body">
                         <h5 class="card-title">New Childcare Services Launched</h5>
                         <p class="card-text">We are now offering specialized childcare services for infants and
@@ -453,7 +540,7 @@
             <!-- News Item 3 -->
             <div class="col-md-4 mb-4">
                 <div class="card shadow border-0">
-                    <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="News 3">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScpOVm0xBWbWub9-KJXgfKUm-vbUoTRdroDA&s" class="card-img-top" alt="News 3">
                     <div class="card-body">
                         <h5 class="card-title">Health Awareness Campaign: Prevention is Key</h5>
                         <p class="card-text">Join us in our awareness campaign about the importance of disease

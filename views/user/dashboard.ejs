@@ -1,31 +1,46 @@
 <div class="my-2">
-    <div class="row">
-        <div class="col-md-4">
-            <h1>User Dashboard</h1>
-            <!-- <form action="/user/answer" method="POST"> -->
-            <form id="symptomForm">
+    <!-- Top Navigation Menu -->
 
-                <div class="form-group">
-                    <label for="question">Please describe your symptoms so that we can provide appropriate
-                        advice:</label>
+    <div class="row" id="symptomSection">
+        <div class="col-md-12">
+            <!-- Form for symptoms -->
+            <form id="symptomForm">
+                <div class="form-group mb-3">
+                    <label for="question" class="h5">Describe your symptoms for appropriate advice:</label>
                     <textarea id="question" name="question" rows="5" class="form-control" required></textarea>
-                </div><br>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="button" id="clearButton" class="btn btn-secondary ml-2">Clear</button>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    <button type="button" id="clearButton" class="btn btn-secondary btn-lg">Clear</button>
+                </div>
             </form>
-            <br>
-            <!-- Display AI Answer if available -->
-            <div id="answerContainer" class="alert alert-info" style="display:none;">
-                <h5>Precautions:</h5>
+
+            <!-- Display AI Answer -->
+            <div id="answerContainer" class="alert alert-info mt-4" style="display:none;">
+                <h5 class="fw-bold">Precautions:</h5>
                 <p id="answerText">Loading...</p>
             </div>
+
+            <!-- Doctors Section -->
+            <div id="doctorsSection" class="container my-4 card shadow-sm" style="display:none;">
+                <h2 class="text-center mb-4 text-primary">Available Doctors</h2>
+                <div class="row" id="doctorsRow">
+                    <!-- Doctors will be dynamically injected here -->
+                </div>
+            </div>
+
         </div>
-        <div class="col-md-8">
-            <div class="container my-4 card shadow-sm">
-                <h1 class="text-center mb-4">Appointment Status Counts</h1>
+    </div>
+
+    <div class="row" id="appointmentStatus">
+        <div class="col-md-12">
+            <!-- Appointment Status Counts -->
+            <div class="container my-4 card shadow-lg p-4">
+                <h2 class="text-center mb-4 text-primary">Appointment Status</h2>
                 <div class="row">
+                    <!-- Scheduled Status -->
                     <div class="col-md-3 mb-3">
-                        <div class="card text-white bg-primary">
+                        <div class="card text-white bg-primary shadow-sm">
                             <div class="card-header">Scheduled</div>
                             <div class="card-body">
                                 <h5 class="card-title">10</h5>
@@ -33,8 +48,10 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Completed Status -->
                     <div class="col-md-3 mb-3">
-                        <div class="card text-white bg-success">
+                        <div class="card text-white bg-success shadow-sm">
                             <div class="card-header">Completed</div>
                             <div class="card-body">
                                 <h5 class="card-title">7</h5>
@@ -42,8 +59,10 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Cancelled Status -->
                     <div class="col-md-3 mb-3">
-                        <div class="card text-white bg-danger">
+                        <div class="card text-white bg-danger shadow-sm">
                             <div class="card-header">Cancelled</div>
                             <div class="card-body">
                                 <h5 class="card-title">3</h5>
@@ -51,8 +70,10 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Pending Status -->
                     <div class="col-md-3 mb-3">
-                        <div class="card text-white bg-warning">
+                        <div class="card text-white bg-warning shadow-sm">
                             <div class="card-header">Pending</div>
                             <div class="card-body">
                                 <h5 class="card-title">2</h5>
@@ -62,68 +83,174 @@
                     </div>
                 </div>
             </div>
-            <div class="container my-4 card shadow-sm">
-                <h1 class="text-center mb-4">Your Appointment History</h1>
-                <div class="table-responsive">
-                    <table class="table table-striped table-hover">
+        </div>
+    </div>
+
+
+    <div class="row" id="appointmentHistory">
+
+        <!-- Appointment History Table -->
+        <div class="container my-4 card shadow-lg p-4">
+            <h2 class="text-center mb-4 text-primary">Your Appointment History</h2>
+            <section class="py-5">
+                <div class="container">
+                    <table class="table table-striped table-bordered">
                         <thead class="table-dark">
                             <tr>
-                                <th>#</th>
-                                <th>Date</th>
-                                <th>Doctor</th>
-                                <th>Hospital</th>
-                                <th>Appointment Date</th>
-                                <th>Status</th>
+                                <th scope="col">#</th>
+                                <th scope="col">Doctor</th>
+                                <th scope="col">Patient Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Contact</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Time</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>01/01/2025</td>
-                                <td>Dr. John Doe</td>
-                                <td>XYZ Hospital</td>
-                                <td>01/10/2025</td>
-                                <td>Scheduled</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>02/01/2025</td>
-                                <td>Dr. Jane Smith</td>
-                                <td>ABC Hospital</td>
-                                <td>02/15/2025</td>
-                                <td>Completed</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>03/01/2025</td>
-                                <td>Dr. Alan Brown</td>
-                                <td>HealthCare Clinic</td>
-                                <td>03/12/2025</td>
-                                <td>Cancelled</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>04/01/2025</td>
-                                <td>Dr. Emily White</td>
-                                <td>Wellness Hospital</td>
-                                <td>04/05/2025</td>
-                                <td>Scheduled</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>05/01/2025</td>
-                                <td>Dr. Michael Black</td>
-                                <td>City Medical Center</td>
-                                <td>05/10/2025</td>
-                                <td>Completed</td>
-                            </tr>
+                            <% appointments.forEach((appointment, index)=> { %>
+                                <tr>
+                                    <td>
+                                        <%= index + 1 %>
+                                    </td>
+                                    <td>
+                                        <%= appointment.doctor ? `${appointment.doctor.name}
+                                            (${appointment.doctor.email})` : 'N/A' %>
+                                    </td>
+                                    <td>
+                                        <%= appointment.name || 'N/A' %>
+                                    </td>
+                                    <td>
+                                        <%= appointment.email || 'N/A' %>
+                                    </td>
+                                    <td>
+                                        <%= appointment.contact || 'N/A' %>
+                                    </td>
+                                    <td>
+                                        <%= new Date(appointment.date).toLocaleDateString() %>
+                                    </td>
+                                    <td>
+                                        <%= appointment.time %>
+                                    </td>
+                                    <td>
+                                        <%= appointment.description || 'N/A' %>
+                                    </td>
+                                    <td>
+                                        <%= appointment.status || 'Pending' %>
+                                    </td>
+                                    <td>
+                                        <a href="/admin/appointments/cancel/<%= appointment.id %>"
+                                            class="btn btn-danger btn-sm">Cancel</a>
+                                    </td>
+                                </tr>
+                                <% }) %>
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </section>
         </div>
     </div>
 </div>
+</div>
+
+<style>
+    /* Doctors Section */
+    #doctorsSection .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #doctorsSection .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    #doctorsSection .card-body {
+        text-align: center;
+    }
+
+    #doctorsSection .card-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    #doctorsSection .card-text {
+        font-size: 0.9rem;
+        color: #555;
+    }
+
+    #doctorsSection .doctor-img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 15px;
+    }
+
+    /* Form and Button Styling */
+    form {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn {
+        font-size: 1.1rem;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover {
+        transform: scale(1.05);
+    }
+
+    .table {
+        font-size: 1rem;
+        border-collapse: collapse;
+    }
+
+    .table th,
+    .table td {
+        text-align: center;
+        padding: 12px;
+    }
+
+    /* Appointment Cards */
+    .card-header {
+        font-weight: bold;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    /* Add responsive styles */
+    @media (max-width: 768px) {
+
+        .col-md-4,
+        .col-md-3 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .col-md-8 {
+            margin-top: 20px;
+        }
+    }
+</style>
 <script>
     $(document).ready(function () {
         $('#symptomForm').on('submit', function (event) {
@@ -134,6 +261,7 @@
             // Show loading message
             $('#answerText').text('Loading...');  // Show "Loading..."
             $('#answerContainer').show();  // Ensure the answer container is visible while loading
+            $('#doctorsSection').show();  // Hide the doctors section
 
             $.ajax({
                 url: '/user/answer',  // Your server endpoint
@@ -142,13 +270,48 @@
                 success: function (response) {
                     if (response.answer) {
                         $('#answerText').html(response.answer);  // Set the answer in the div
+                        $('#answerContainer').show();  // Ensure the answer container is visible
                     } else {
                         alert("No answer received.");
                     }
+                    // Display doctors if available
+                    if (response.doctors && response.doctors.length > 0) {
+                        let doctorsHtml = '';
+                        response.doctors.forEach(doctor => {
+                            doctorsHtml += `
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <!-- Doctor Image -->
+                                        <img src="${doctor.image || '/path/to/default/image.jpg'}" alt="${doctor.name}'s image" class="doctor-img">
+                                        <a href="/list/${doctor.id}" class="text-decoration-none">
+                                            <h5 class="card-title fw-bold text-dark">${doctor.name}</h5>
+                                        </a>
+                                        <p class="card-text">${doctor.speciality || 'N/A'}</p>
+                                        <p class="card-text">Email: ${doctor.email}</p>
+                                        <p class="card-text">Contact: ${doctor.contact || 'N/A'}</p>
+                                        <p class="card-text">Address: ${doctor.address || 'N/A'}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        });
+
+
+                        // Append doctors to the UI
+                        $('#doctorsSection').html(doctorsHtml);  // Ensure you have a div with id="doctorsSection"
+                        $('#doctorsSection').show();  // Show the doctors section
+                    } else {
+                        $('#doctorsSection').html('<p>No doctors available at the moment.</p>');
+                        $('#doctorsSection').show();
+                    }
                 },
+
+
                 error: function (error) {
                     alert("Error occurred while fetching the answer.");
                 }
+
             });
         });
 
@@ -156,6 +319,8 @@
         $('#clearButton').on('click', function () {
             $('#question').val('');  // Clear the textarea
             $('#answerContainer').hide();  // Hide the answer container
+            $('#doctorsSection').hide();  // Hide the doctors section
         });
     });
+
 </script>

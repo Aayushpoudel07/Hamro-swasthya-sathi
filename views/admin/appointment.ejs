@@ -7,6 +7,9 @@
                     <th scope="col">#</th>
                     <th scope="col">Doctor</th>
                     <th scope="col">Patient</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Contact</th>
                     <th scope="col">Date</th>
                     <th scope="col">Time</th>
                     <th scope="col">Description</th>
@@ -18,13 +21,12 @@
                 <% appointments.forEach((appointment, index) => { %>
                 <tr>
                     <td><%= index + 1 %></td>
-                   
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
+                    
+                    <td><%= appointment.doctor ? appointment.doctor.name : 'N/A' %></td> <!-- Display doctor name -->
+                    <td><%= appointment.user ? `${appointment.user.name} (${appointment.user.email})` : 'N/A' %></td> <!-- Display patient name and email -->
+                    <td><%= appointment.name || 'N/A' %></td>
+                    <td><%= appointment.email || 'N/A' %></td>
+                    <td><%= appointment.contact || 'N/A' %></td>
                     <td><%= new Date(appointment.date).toLocaleDateString() %></td>
                     <td><%= appointment.time %></td>
                     <td><%= appointment.description || 'N/A' %></td>

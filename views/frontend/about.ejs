@@ -1,11 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    About
-</body>
-</html>
+
+<style>
+       
+    .hero {
+        background: url('https://media.istockphoto.com/id/1416335096/photo/businessman-hand-holding-smart-phone-with-icon-mobile-phone-mail-telephone-and-address.jpg?s=612x612&w=0&k=20&c=ajOYHJPqlaKZ04BeSf5m3MsuZ_YGyxrUqEGMaS1hGGk=') no-repeat center center/cover;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+    }
+    .hero h1 {
+        font-size: 3rem;
+        font-weight: bold;
+    }
+    .about-section, .team-section {
+        padding: 60px 0;
+    }
+    .team-member img {
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+    }
+    .team-member {
+        text-align: center;
+        padding: 20px;
+        transition: 0.3s;
+    }
+    .team-member:hover {
+        transform: scale(1.05);
+    }
+    .cta-section {
+        background: #007bff;
+        color: white;
+        text-align: center;
+        padding: 50px 20px;
+    }
+</style>
+
+
+<header class="hero">
+    <h1>About Us</h1>
+</header>
+
+<section class="about-section container text-center">
+    <h2>Who We Are</h2>
+    <p class="lead">We are a team of passionate professionals dedicated to delivering top-quality services. Our mission is to innovate and create solutions that make a difference.</p>
+</section>
+
+<section class="team-section container">
+    <h2 class="text-center mb-4">Meet Our Team</h2>
+    <div class="row">
+        <div class="col-md-4 team-member">
+            <img src="https://preview.redd.it/instagram-default-user-profile-pic-flip-flops-v0-clnilflfeg4d1.jpg?width=230&format=pjpg&auto=webp&s=e5c920f218f52a77c28abc5175c8db29dfa0d219" alt="Team Member">
+            <h5>John Doe</h5>
+            <p>CEO & Founder</p>
+        </div>
+        <div class="col-md-4 team-member">
+            <img src="https://preview.redd.it/instagram-default-user-profile-pic-flip-flops-v0-clnilflfeg4d1.jpg?width=230&format=pjpg&auto=webp&s=e5c920f218f52a77c28abc5175c8db29dfa0d219" alt="Team Member">
+            <h5>Jane Smith</h5>
+            <p>Chief Designer</p>
+        </div>
+        <div class="col-md-4 team-member">
+            <img src="https://preview.redd.it/instagram-default-user-profile-pic-flip-flops-v0-clnilflfeg4d1.jpg?width=230&format=pjpg&auto=webp&s=e5c920f218f52a77c28abc5175c8db29dfa0d219" alt="Team Member">
+            <h5>Michael Brown</h5>
+            <p>Lead Developer</p>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <h2>Join Us on Our Journey</h2>
+    <p class="lead">Want to learn more? Get in touch and be a part of our story!</p>
+    <a href="#contact" class="btn btn-light btn-lg">Contact Us</a>
+</section>
+
+

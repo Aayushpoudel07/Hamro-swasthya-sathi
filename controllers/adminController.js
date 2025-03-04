@@ -164,14 +164,16 @@ exports.createDoctors = async (req, res) => {
 };
 
 
+
+
 // View all appointments for admin
 exports.viewAppointments = async (req, res) => {
   try {
       const appointments = await Appointment.findAll({
-          // include: [
-          //     { model: Users, as: 'doctor', attributes: ['name', 'speciality'] }, // Include doctor's details
-          //     { model: Users, as: 'user', attributes: ['name', 'email'] }  // Include user's details
-          // ]
+          include: [
+              { model: Users, as: 'doctor', attributes: ['name'] }, // Include doctor's details
+              { model: Users, as: 'user', attributes: ['name', 'email'] }  // Include user's details
+          ]
       });
 
       res.render('admin/appointment', { appointments });

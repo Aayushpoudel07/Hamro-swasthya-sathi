@@ -23,99 +23,108 @@
         .search-field {
             max-width: 500px;
         }
+
+        /* Navbar Styling */
+        .navbar-custom {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-custom .navbar-brand img {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .navbar-custom .navbar-brand img:hover {
+            transform: scale(1.1);
+        }
+
+        .navbar-custom .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+            transition: color 0.3s ease-in-out, transform 0.2s;
+        }
+
+        .navbar-custom .nav-link:hover {
+            color: #f8d210 !important;
+            transform: scale(1.1);
+        }
+
+        .navbar-custom .btn-primary {
+            background-color: #f8d210;
+            border-color: #f8d210;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .navbar-custom .btn-primary:hover {
+            background-color: #ffcc00;
+            border-color: #ffcc00;
+        }
+
+        .navbar-custom .btn-outline-light:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
     </style>
 </head>
 
 <body>
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUlwHTE796Xs5MoqfbX0bAA1o42c9q2BB87A&s" alt="Brand Logo" style="height: 40px;">
-        </a>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUlwHTE796Xs5MoqfbX0bAA1o42c9q2BB87A&s"
+                    alt="Brand Logo" style="height: 40px;">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Hospitals</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/list">Doctors</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Blogs</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact us</a>
-                </li>
-            </ul>
-            <div class="d-flex">
-                <a href="#" class="btn btn-primary me-2">Book Appointment</a>
-                <a href="/auth/login" class="btn btn-outline-light">Login</a>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/list">Doctors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact">Contact us</a></li>
+                </ul>
+
+                <div class="d-flex">
+
+                    <% if (isLoggedIn) { %>
+                        <a href="/list" class="btn btn-primary me-2">Book Appointment</a>
+                        <a href="/user/dashboard" class="btn btn-secondary">Dashboard</a>
+
+                        <a href="/auth/logout" class="btn btn-outline-light me-2">Logout</a>
+                        <% } else { %>
+                            <a href="/auth/login" class="btn btn-outline-light me-2">Login</a>
+                            <% } %>
+                </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
     <main class="mt-4">
         <%- body %>
     </main>
 
-<!-- Footer Section -->
-<footer class="bg-dark text-white py-4">
-    <div class="container">
-        <div class="row">
-            <!-- Column 1: About Section -->
-            <div class="col-md-4 mb-3">
-                <h5 class="fw-bold">About Us</h5>
-                <p>We are a leading health care provider offering top-notch services and care. Our mission is to
-                    provide quality healthcare to everyone, every day.</p>
-            </div>
-
-            <!-- Column 2: Useful Links -->
-            <div class="col-md-4 mb-3">
-                <h5 class="fw-bold">Quick Links</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="text-white text-decoration-none">Home</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">Services</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">News</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 3: Social Media Links -->
-            <div class="col-md-4 mb-3">
-                <h5 class="fw-bold">Follow Us</h5>
-                <div>
-                    <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
-                </div>
+    <!-- Footer Section -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+       
+            <div class="text-center mt-4">
+                <p>&copy; 2022 Hamro Swasthya Sathi. All rights reserved.</p>
             </div>
         </div>
-        <div class="text-center mt-4">
-            <p>&copy; 2024 Your Health Center. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 
-<!-- Bootstrap Icons -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
