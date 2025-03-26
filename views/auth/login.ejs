@@ -1,5 +1,12 @@
 <div class="card p-4">
+    <div class="p-2 text-center">
+        <a href="/"><img src="https://media-hosting.imagekit.io//dc37da5f69744943/Hospital%20Logo.png?Expires=1837428271&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=zTaK1aHFPzzWL8JopnbA2C2to62-woGYTCyn5ITLHmUG37G2sCI68lDWBZE2LCG86UcfYQBGk9ttUbo1ow5BGIYpeMEruMDNYG60Wsz~MpkErzHiIXKCUhdDb~NGE4IEGgaqW8fRAZ2VD9TLpRURG0VX26SU15UcDJhtdwx1b1uFotl9Rz~qV-DRQphwC9jx1MqMBxd7Y9KQza4DZZrsRUbsmc~tPZSPGJ85uIAiv7toUoKsRwwoB0SMIVC-WIoSLgMo0-mFzoxQQjEXHOehuM1THvyLl2iv19bFdAVKwlSFrlt-e3c4vkFZ57U5k1JWZiW9LOYtiOwDuDtdt3azUg__"
+                    alt="Brand Logo" style="height: 50px;"></a>
+    </div>
     <h4 class="text-center mb-4">Login</h4>
+    <% if (typeof message !== 'undefined' && message) { %>
+        <p class="text-danger text-center text-bold"><%= message %></p> 
+    <% } %>
     <form action="/auth/login" method="post">
         <div class="mb-3">
             <label for="loginEmail" class="form-label">Email address</label>
@@ -10,8 +17,14 @@
             <input type="password" name="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
         </div>
         <button type="submit" class="btn btn-primary w-100">Login</button>
+        <div class="text-center">
+            <a href="/auth/forgot-password" class="text-decoration-none">
+                <small style="color: red;">Forgot Password ?</small>
+
+            </a>
+        </div>
         <p class="text-center mt-3">
-            Don't have an account?Please register <a href="/auth/register">Register</a>
+            Don't have an account?Please register <a class="text-decoration-none" href="/auth/register">Register</a>
         </p>
 
     </form>

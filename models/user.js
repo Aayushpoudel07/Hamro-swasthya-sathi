@@ -14,7 +14,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: true,
         },
-       
+
         password: {
             type: Sequelize.STRING,
         },
@@ -42,7 +42,11 @@ module.exports = (sequelize, Sequelize) => {
         speciality:{
             type:Sequelize.STRING,
             allowNull:true
-        }
+        },
+        otp: {
+            type: Sequelize.STRING,
+            allowNull: true,
+        },
     });
 
     // Define method to validate password

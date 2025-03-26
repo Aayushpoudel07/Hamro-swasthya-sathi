@@ -1,7 +1,7 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const { Appointment, Users, Sequelize } = require("../models");
 
-const genAI = new GoogleGenerativeAI("AIzaSyBJxtMkZ6XmfFG46icktPfg3ceNeckIRUY");
+const genAI = new GoogleGenerativeAI("AIzaSyDb6g9vBPiNs-ea3XbNrV_ERZ7UAu_C0uM");
 
 
 // user dashboard
@@ -18,8 +18,41 @@ exports.dashboard = async (req, res) => {
       ]
     });
 
+    
 
-    res.render('user/dashboard', { appointments });
+        // Count Pending Appointments
+        const pendingAppointment = await Appointment.count({
+            where: {
+                userId: userId,
+                status: 'Pending',
+            }
+        });
+
+        // Count Approved Appointments
+        const approvedAppointment = await Appointment.count({
+            where: {
+                userId: userId,
+                status: 'Approved',
+            }
+        });
+
+        // Count Cancelled Appointments
+        const cancelAppointment = await Appointment.count({
+            where: {
+                userId: userId,
+                status: 'Cancelled',  // or your equivalent status for cancelled appointments
+            }
+        });
+
+        // Count Total Appointments
+        const totalAppointment = await Appointment.count({
+            where: {
+                userId: userId,
+            }
+        });
+
+
+    res.render('user/dashboard', { appointments, pendingAppointment,cancelAppointment, totalAppointment,approvedAppointment });
   } catch (error) {
     console.error(error);
     res.status(500).send("Error");
@@ -41,9 +74,19 @@ exports.answer = async (req, res) => {
         **Provide your response in valid HTML format. as a text not as code** 
       `;
 
+
+     // Fetch all available specialties from the database
+    const allSpecialties = await Users.findAll({
+      attributes: [[Sequelize.fn('DISTINCT', Sequelize.col('speciality')), 'speciality']],
+      where: { role: 'doctor' }
+    });
+
+    // Extract and clean up database specialties
+    let dbSpecialties = allSpecialties.map(row => row.speciality.trim());
+
     const getDoctorPrompt = `
     I need a list of doctors' specialties that can be helpful for the following health problem: ${question}.
-    **Provide the top 5 specialties list just with commas separated nothing else**.
+    **Provide the top 5 specialties list just with commas separated nothing else that matches the ${dbSpecialties}**.
     `;
     
     const model = await genAI.getGenerativeModel({ model: "gemini-1.5-flash" });

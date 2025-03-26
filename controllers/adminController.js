@@ -1,5 +1,5 @@
 
-const { Users } = require('../models');
+const { Users, Appointment } = require('../models');
 const bcrypt = require('bcrypt');
 const { sequelize } = require('../models');
 
@@ -9,8 +9,7 @@ exports.dashboard = async (req, res) => {
     const userCount = await Users.count();
     const doctorCount = await Users.count({ where: { role: 'doctor' } });
     const hospitalCount = await Users.count({ where: { role: 'hospital' } });
-    // const appointmentCount = await Appointment.count(); 
-    const appointmentCount = 100;
+    const appointmentCount = await Appointment.count(); 
 
     const userRegistrations = await Users.findAll({
       attributes: [
@@ -28,8 +27,6 @@ exports.dashboard = async (req, res) => {
     const labels = userRegistrations.map(reg => reg.get('month'));  // Use `get()` to retrieve the value
     const data = userRegistrations.map(reg => reg.get('count'));   // Same here
     
-    console.log(labels);
-    console.log(data);
     
     res.render('admin/dashboard', {
       userCount,
@@ -137,7 +134,7 @@ exports.createDoctor = async (req, res) => {
 // create doctors
 exports.createDoctors = async (req, res) => {
   try {
-    const { name, email, contact, password, hospitalId, role, image, description, address } = req.body;
+    const { name, email, contact, password, speciality, role, image, description, address } = req.body;
 
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -152,7 +149,7 @@ exports.createDoctors = async (req, res) => {
       image,
       description,
       address,
-      hospitalId
+      speciality
     });
 
     res.redirect('/admin/doctors');
@@ -162,8 +159,6 @@ exports.createDoctors = async (req, res) => {
     return;
   }
 };
-
-
 
 
 // View all appointments for admin
@@ -182,3 +177,13 @@ exports.viewAppointments = async (req, res) => {
       res.status(500).send("Error fetching appointments");
   }
 };
+
+// settings
+exports.settings = async (req, res) => {
+  try {
+    const user = await Users.findOne({ where: { id: req.user.id } });
+    res.render('admin/settings', { user });
+  } catch (error) {
+    res.status(500).send("Error loading settings page.");
+  }
+}

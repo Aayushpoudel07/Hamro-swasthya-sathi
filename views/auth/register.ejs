@@ -1,6 +1,13 @@
 <div class="card p-4">
+    <div class="p-2 text-center">
+        <a href="/"><img src="https://media-hosting.imagekit.io//dc37da5f69744943/Hospital%20Logo.png?Expires=1837428271&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=zTaK1aHFPzzWL8JopnbA2C2to62-woGYTCyn5ITLHmUG37G2sCI68lDWBZE2LCG86UcfYQBGk9ttUbo1ow5BGIYpeMEruMDNYG60Wsz~MpkErzHiIXKCUhdDb~NGE4IEGgaqW8fRAZ2VD9TLpRURG0VX26SU15UcDJhtdwx1b1uFotl9Rz~qV-DRQphwC9jx1MqMBxd7Y9KQza4DZZrsRUbsmc~tPZSPGJ85uIAiv7toUoKsRwwoB0SMIVC-WIoSLgMo0-mFzoxQQjEXHOehuM1THvyLl2iv19bFdAVKwlSFrlt-e3c4vkFZ57U5k1JWZiW9LOYtiOwDuDtdt3azUg__"
+                    alt="Brand Logo" style="height: 50px;"></a>
+    </div>
     <h4 class="text-center mb-4">Register</h4>
-    <form action="/auth/register" method="post">
+    <% if (typeof message !== 'undefined' && message) { %>
+        <p class="text-danger text-center text-bold"><%= message %></p> 
+    <% } %>
+    <form action="/auth/register" method="post" onsubmit="return validatePassword()">
         <div class="mb-3">
             <label for="registerName" class="form-label">Full Name</label>
             <input type="text" name="name" class="form-control" id="registerName" placeholder="Enter your full name" required>
@@ -11,15 +18,50 @@
         </div>
         <div class="mb-3">
             <label for="registerPassword" class="form-label">Password</label>
-            <input type="password" name="password" class="form-control" id="registerPassword" placeholder="Create a password" required>
+            <input type="password" name="password" class="form-control" id="registerPassword" placeholder="Create a password" required 
+                data-bs-toggle="tooltip" data-bs-placement="right" 
+                title="Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.">
         </div>
         <div class="mb-3">
             <label for="registerConfirmPassword" class="form-label">Confirm Password</label>
             <input type="password" name="confirmPassword" class="form-control" id="registerConfirmPassword" placeholder="Confirm your password" required>
+            <small id="confirmPasswordHelp" class="form-text text-muted"></small>
         </div>
+
         <button type="submit" class="btn btn-primary w-100">Register</button>
         <p class="text-center mt-3">
-            Already have an account? <a href="/auth/login">Login</a>
+            Already have an account? <a class= text-decoration-none href="/auth/login">Login</a>
         </p>
     </form>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Initialize Bootstrap tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+
+    // Password validation function
+    function validatePassword() {
+        const password = document.getElementById('registerPassword').value;
+        const confirmPassword = document.getElementById('registerConfirmPassword').value;
+        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        
+        // Check if password matches the pattern
+        if (!passwordPattern.test(password)) {
+            alert("Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.");
+            return false;
+        }
+
+        // Check if passwords match
+        if (password !== confirmPassword) {
+            document.getElementById('confirmPasswordHelp').textContent = "Passwords do not match.";
+            return false;
+        }
+
+        // If everything is fine, allow form submission
+        return true;
+    }
+</script>

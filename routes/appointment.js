@@ -6,5 +6,7 @@ const authMiddleware = require('../middleware/authMiddleware');
 // Routes
 router.get('/', authMiddleware,appointmentController.index);
 router.post('/',authMiddleware, appointmentController.store);
+router.post('/change-status/:id',authMiddleware, appointmentController.changeStatus);
+router.get('/cancel/:id', authMiddleware, appointmentController.cancelAppointment);
 
 module.exports = router;

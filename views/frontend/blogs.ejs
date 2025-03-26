@@ -1,0 +1,82 @@
+<style>
+    .hero {
+        background: url('https://media.istockphoto.com/id/1416335096/photo/businessman-hand-holding-smart-phone-with-icon-mobile-phone-mail-telephone-and-address.jpg?s=612x612&w=0&k=20&c=ajOYHJPqlaKZ04BeSf5m3MsuZ_YGyxrUqEGMaS1hGGk=') no-repeat center center/cover;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        font-weight: bold;
+    }
+
+    .about-section,
+    .team-section {
+        padding: 60px 0;
+    }
+
+    .team-member img {
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+    }
+
+    .team-member {
+        text-align: center;
+        padding: 20px;
+        transition: 0.3s;
+    }
+
+    .team-member:hover {
+        transform: scale(1.05);
+    }
+
+    .cta-section {
+        background: #007bff;
+        color: white;
+        text-align: center;
+        padding: 50px 20px;
+    }
+</style>
+
+
+<header class="hero">
+    <h1>Blogs</h1>
+</header>
+
+
+
+<section class="team-section container">
+    <div class="container mt-5 " sty>
+        <!-- Row to display all blogs as cards -->
+        <div class="row">
+            <% blogs.forEach((blog)=> { %>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="<%= blog.image %>" class="card-img-top" alt="Blog Image"
+                            style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= blog.title %>
+                            </h5>
+                            <p class="card-text">
+                                <%= blog.content.slice(0, 150) + '...' %>
+                            </p>
+                            <p class="card-text">
+                                <strong>Tags:</strong>
+                                <%= blog.tags %>
+                            </p>
+
+                            <a href="/blog/<%= blog.id %>" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+    </div>
+</section>

@@ -59,21 +59,15 @@
                             placeholder="Enter address"></textarea>
                     </div>
                 </div>
-                <!-- Hospital Selection -->
-                <div class="mb-3 row">
-                    <label for="hospitalId" class="col-sm-2 col-form-label">Hospital</label>
+                 <!-- Address -->
+                 <div class="mb-3 row">
+                    <label for="speciality" class="col-sm-2 col-form-label">Speciality</label>
                     <div class="col-sm-10">
-                        <select class="form-control" id="hospitalId" name="hospitalId" required>
-                            <option value="" disabled selected>Select Hospital</option>
-                            <% hospitals.forEach(hospital=> { %>
-                                <option value="<%= hospital.id %>">
-                                    <%= hospital.name %>
-                                </option>
-                                <% }) %>
-                        </select>
+                        <textarea class="form-control" name="speciality" id="speciality" rows="2"
+                            placeholder="Enter Speciality"></textarea>
                     </div>
                 </div>
-
+               
                 <!-- role -->
                 <div class="mb-3 row">
                     <label for="address" class="col-sm-2 col-form-label">Address</label>
@@ -81,22 +75,18 @@
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="role" id="roleAdmin" value="admin"
                                 disabled>
-                            <label class="form-check-label" for="roleAdmin">Admin</label>
+                            <label class="form-check-label" for="roleAdmin">Doctor</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="role" id="roleUser" value="user"
                                 disabled>
                             <label class="form-check-label" for="roleUser">User</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="role" id="roleHospital" value="hospital"
-                                disabled>
-                            <label class="form-check-label" for="roleHospital">Hospital</label>
-                        </div>
+                        
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="role" id="roleDoctor" value="doctor"
                                 checked>
-                            <label class="form-check-label" for="roleDoctor">Doctor</label>
+                            <label class="form-check-label" for="roleDoctor">Admin</label>
                         </div>
                     </div>
 

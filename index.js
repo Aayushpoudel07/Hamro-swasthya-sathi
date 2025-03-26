@@ -68,18 +68,19 @@ const frontendRoutes = require('./routes/frontendRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const authRoutes = require('./routes/authRoutes');
 const doctorRoutes = require('./routes/doctorRoutes');
-
 const userRoutes = require('./routes/userRoutes');
 const appointmentRoutes = require('./routes/appointment');
-
+const blogRoutes = require('./routes/blogRoutes');
+const patientRecords = require('./routes/patientRecordRoute');
 
 app.use('/', frontendRoutes);
 app.use('/admin', adminRoutes);
 app.use('/auth', authRoutes);
 app.use('/doctor', doctorRoutes);
-
 app.use('/user', userRoutes);
 app.use('/appointment', appointmentRoutes);
+app.use('/blog', blogRoutes);
+app.use('/patientRecords', patientRecords);
 
 
 // Start the server

@@ -1,9 +1,63 @@
-// doctor dashboard
+const { Appointment, Users } = require("../models");
+
+// Doctor Dashboard
 exports.dashboard = async (req, res) => {
     try {
-        res.render('doctor/dashboard');
+        const doctorId = req.user.id;
+
+        // Count Pending Appointments
+        const pendingAppointment = await Appointment.count({
+            where: {
+                doctorId: doctorId,
+                status: 'Pending',
+            }
+        });
+
+        // Count Approved Appointments
+        const approvedAppointment = await Appointment.count({
+            where: {
+                doctorId: doctorId,
+                status: 'Approved',
+            }
+        });
+
+        // Count Cancelled Appointments
+        const cancelAppointment = await Appointment.count({
+            where: {
+                doctorId: doctorId,
+                status: 'Cancelled',  // or your equivalent status for cancelled appointments
+            }
+        });
+
+        // Count Total Appointments
+        const totalAppointment = await Appointment.count({
+            where: {
+                doctorId: doctorId,
+            }
+        });
+
+        // appointments
+        const appointments = await Appointment.findAll({
+            where: {
+                doctorId: doctorId, // Filter by the authenticated user's ID
+                status: 'Pending',
+            },
+            include: [
+                { model: Users, as: 'user', attributes: ['name', 'email'] }  // Include user's details
+            ]
+        });
+
+        res.render('doctor/dashboard', {
+            pendingAppointment,
+            approvedAppointment,
+            cancelAppointment,
+            totalAppointment,
+            appointments
+        });
+
     } catch (error) {
-        res.status(500).send("Error");
+        console.error(error);
+        res.status(500).send("Error loading dashboard");
     }
 };
 
@@ -16,7 +70,7 @@ exports.viewAppointments = async (req, res) => {
                 doctorId: doctorId, // Filter by the authenticated user's ID
             },
             include: [
-                { model: Users, as: 'user', attributes: ['name', 'email'] }  // Include user's details
+                { model: Users, as: 'user', attributes: ['name', 'email','id'] }  // Include user's details
             ]
         });
 
@@ -26,3 +80,13 @@ exports.viewAppointments = async (req, res) => {
         res.status(500).send("Error fetching appointments");
     }
 };
+
+// settings
+exports.settings = async (req, res) => {
+    try {
+      const user = await Users.findOne({ where: { id: req.user.id } });
+      res.render('doctor/settings', { user });
+    } catch (error) {
+      res.status(500).send("Error loading settings page.");
+    }
+  }

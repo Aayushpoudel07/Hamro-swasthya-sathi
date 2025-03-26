@@ -150,13 +150,13 @@
 <div class="hero-section">
     <div class="container text-center">
         <div class="hero-text">
-            <h1 class="display-4 fw-bold">Welcome to Our Service</h1>
-            <p class="lead">Find the best solutions tailored for your needs. Start your journey with us today!</p>
+            <h1 class="display-4 fw-bold">Welcome to Our Hospital Service</h1>
+            <p class="lead">Uncover the perfect solutions just for you. Let’s start this exciting journey together today</p>
             <div class="search-field mx-auto">
-                <form>
+                <form action="/search" method="post">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search here..." aria-label="Search">
-                        <button class="btn btn-primary" type="button">Search</button>
+                        <input type="text" name="query" class="form-control" placeholder="Search doctors here..." aria-label="Search">
+                        <button class="btn btn-primary" type="submit">Search</button>
                     </div>
                 </form>
             </div>
@@ -178,11 +178,10 @@
                 <div class="card shadow h-100 text-center">
                     <div class="card-body">
                         <div class="icon mb-3">
-                            <i class="bi bi-gear-fill text-primary" style="font-size: 3rem;"></i>
+                            <i class="bi bi-hospital text-danger" style="font-size: 3rem;"></i>
                         </div>
-                        <h5 class="card-title">Service One</h5>
-                        <p class="card-text text-muted">Description of service one. It’s crafted to suit your
-                            specific needs.</p>
+                        <h5 class="card-title">Emergency Care</h5>
+                        <p class="card-text text-muted">Available 24/7, our emergency care service is ready to handle critical situations and provide immediate treatment when you need it the most.</p>
                     </div>
                 </div>
             </div>
@@ -192,11 +191,10 @@
                 <div class="card shadow h-100 text-center">
                     <div class="card-body">
                         <div class="icon mb-3">
-                            <i class="bi bi-lightbulb-fill text-warning" style="font-size: 3rem;"></i>
+                            <i class="bi bi-person-lines-fill text-warning" style="font-size: 3rem;"></i>
                         </div>
-                        <h5 class="card-title">Service Two</h5>
-                        <p class="card-text text-muted">Description of service two. Innovative solutions for your
-                            challenges.</p>
+                        <h5 class="card-title">Consultation Services</h5>
+                        <p class="card-text text-muted">Our expert doctors are available for consultations, offering personalized care and advice for your health needs.</p>
                     </div>
                 </div>
             </div>
@@ -206,11 +204,10 @@
                 <div class="card shadow h-100 text-center">
                     <div class="card-body">
                         <div class="icon mb-3">
-                            <i class="bi bi-people-fill text-success" style="font-size: 3rem;"></i>
+                            <i class="bi bi-house-door-fill text-success" style="font-size: 3rem;"></i>
                         </div>
-                        <h5 class="card-title">Service Three</h5>
-                        <p class="card-text text-muted">Description of service three. Building connections that
-                            matter.</p>
+                        <h5 class="card-title">Family Care</h5>
+                        <p class="card-text text-muted">Our family care services are designed to support your loved ones, offering counseling and assistance for a healthier home environment.</p>
                     </div>
                 </div>
             </div>
@@ -220,11 +217,10 @@
                 <div class="card shadow h-100 text-center">
                     <div class="card-body">
                         <div class="icon mb-3">
-                            <i class="bi bi-shield-lock-fill text-danger" style="font-size: 3rem;"></i>
+                            <i class="bi bi-capsule text-info" style="font-size: 3rem;"></i>
                         </div>
-                        <h5 class="card-title">Service Four</h5>
-                        <p class="card-text text-muted">Description of service four. Security and reliability you
-                            can trust.</p>
+                        <h5 class="card-title">AI Health Recommendations</h5>
+                        <p class="card-text text-muted">Our AI-powered symptom checker provides personalized health advice based on your symptoms, guiding you to the right care and treatment.</p>
                     </div>
                 </div>
             </div>
@@ -397,7 +393,7 @@
                                         class="rounded-circle mb-3"
                                         style="width: 120px; height: 120px; object-fit: cover; border: 3px solid #007bff;">
                                     <p class="fs-4 text-muted mb-4">"The doctors here are amazing. They really care about your health and well-being!"</p>
-                                    <h5 class="fw-bold">John Doe</h5>
+                                    <h5 class="fw-bold">Tika Thamsuhang</h5>
                                     <p class="text-primary mb-0">Cardiology Patient</p>
                                 </div>
                             </div>
@@ -414,7 +410,7 @@
                                         class="rounded-circle mb-3"
                                         style="width: 120px; height: 120px; object-fit: cover; border: 3px solid #28a745;">
                                     <p class="fs-4 text-muted mb-4">"Excellent service and care. I highly recommend this clinic to everyone."</p>
-                                    <h5 class="fw-bold">Jane Smith</h5>
+                                    <h5 class="fw-bold">Shamy Budhathoki</h5>
                                     <p class="text-primary mb-0">Gynecology Patient</p>
                                 </div>
                             </div>
@@ -431,7 +427,7 @@
                                         class="rounded-circle mb-3"
                                         style="width: 120px; height: 120px; object-fit: cover; border: 3px solid #dc3545;">
                                     <p class="fs-4 text-muted mb-4">"I felt truly cared for. The team is so professional and kind."</p>
-                                    <h5 class="fw-bold">Robert Brown</h5>
+                                    <h5 class="fw-bold">Raman Nath</h5>
                                     <p class="text-primary mb-0">Orthopedic Patient</p>
                                 </div>
                             </div>
@@ -511,44 +507,28 @@
             <p class="text-muted">Stay updated with the latest news and events from our health center.</p>
         </div>
         <div class="row">
-            <!-- News Item 1 -->
-            <div class="col-md-4 mb-4">
-                <div class="card shadow border-0">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScpOVm0xBWbWub9-KJXgfKUm-vbUoTRdroDA&s" class="card-img-top" alt="News 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Breaking News: New Cardiology Treatments</h5>
-                        <p class="card-text">Our clinic introduces new advanced treatments for heart disease. Learn
-                            more about our cutting-edge technologies.</p>
-                        <a href="#" class="btn btn-primary">Read More</a>
-                    </div>
-                </div>
-            </div>
+            <% blogs.forEach((blog)=> { %>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="<%= blog.image %>" class="card-img-top" alt="Blog Image"
+                            style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= blog.title %>
+                            </h5>
+                            <p class="card-text">
+                                <%= blog.content.slice(0, 150) + '...' %>
+                            </p>
+                            <p class="card-text">
+                                <strong>Tags:</strong>
+                                <%= blog.tags %>
+                            </p>
 
-            <!-- News Item 2 -->
-            <div class="col-md-4 mb-4">
-                <div class="card shadow border-0">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScpOVm0xBWbWub9-KJXgfKUm-vbUoTRdroDA&s" class="card-img-top" alt="News 2">
-                    <div class="card-body">
-                        <h5 class="card-title">New Childcare Services Launched</h5>
-                        <p class="card-text">We are now offering specialized childcare services for infants and
-                            toddlers. Check out our new offerings.</p>
-                        <a href="#" class="btn btn-primary">Read More</a>
+                            <a href="/blog/<%= blog.id %>" class="btn btn-primary">Read More</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- News Item 3 -->
-            <div class="col-md-4 mb-4">
-                <div class="card shadow border-0">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScpOVm0xBWbWub9-KJXgfKUm-vbUoTRdroDA&s" class="card-img-top" alt="News 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Health Awareness Campaign: Prevention is Key</h5>
-                        <p class="card-text">Join us in our awareness campaign about the importance of disease
-                            prevention and early detection.</p>
-                        <a href="#" class="btn btn-primary">Read More</a>
-                    </div>
-                </div>
-            </div>
+                <% }); %>
         </div>
     </div>
 </section>
