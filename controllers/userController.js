@@ -1,5 +1,5 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-const { Appointment, Users, Sequelize } = require("../models");
+const { Appointment, Users, Sequelize, PatientRecord } = require("../models");
 
 const genAI = new GoogleGenerativeAI("AIzaSyDb6g9vBPiNs-ea3XbNrV_ERZ7UAu_C0uM");
 
@@ -51,8 +51,20 @@ exports.dashboard = async (req, res) => {
             }
         });
 
+        const records = await PatientRecord.findAll({
+          where: { patientId:userId },
+          include: [
+              {
+                  model: Users,
+                  as: 'doctor',
+                  attributes: ['id', 'name', 'email']
+              }
+          ]
+      });
 
-    res.render('user/dashboard', { appointments, pendingAppointment,cancelAppointment, totalAppointment,approvedAppointment });
+        
+
+    res.render('user/dashboard', { appointments, pendingAppointment,cancelAppointment, totalAppointment,approvedAppointment,records });
   } catch (error) {
     console.error(error);
     res.status(500).send("Error");

@@ -24,6 +24,10 @@ db.PatientRecord.belongsTo(db.Users, { foreignKey: 'patientId', as: 'patient' })
 db.Users.hasMany(db.PatientRecord, { foreignKey: 'doctorId', as: 'doctorRecords' });
 db.PatientRecord.belongsTo(db.Users, { foreignKey: 'doctorId', as: 'doctor' });
 
+// Blogs
+db.Blog.belongsTo(db.Users, { foreignKey: 'authorId', as: 'author' });
+db.Users.hasMany(db.Blog, { foreignKey: 'authorId', as: 'blogs' });
+
 //  Define syncModels 
 const syncModels = async () => {
   try {

@@ -3,6 +3,7 @@ const router = express.Router();
 const authController = require('../controllers/authController');
 const { route } = require('./adminRoutes');
 const authMiddleware = require('../middleware/authMiddleware');
+const uploadMiddleware = require('../middleware/uploadMiddleware');
 
 // Routes
 router.get('/login', authController.login);

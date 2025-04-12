@@ -5,6 +5,7 @@ const blogController = require('../controllers/blogController');
 
 const authMiddleware = require('../middleware/authMiddleware');
 const adminMiddleware = require('../middleware/adminMiddleware');
+const uploadMiddleware = require('../middleware/uploadMiddleware');
 
 // Routes
 router.get('/dashboard', authMiddleware,adminMiddleware, adminController.dashboard);
@@ -18,7 +19,7 @@ router.get('/appointments', authMiddleware, adminMiddleware,adminController.view
 
 router.get('/blogs', authMiddleware,adminMiddleware, blogController.blogs);
 router.get('/create-blog', authMiddleware, adminMiddleware,blogController.createBlog);
-router.post('/create-blog', authMiddleware, adminMiddleware,blogController.store);
+router.post('/create-blog', authMiddleware, uploadMiddleware.single('image'), adminMiddleware,blogController.store);
 
 router.get('/settings', authMiddleware, adminMiddleware,adminController.settings);
 module.exports = router;

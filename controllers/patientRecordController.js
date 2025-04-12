@@ -102,7 +102,7 @@ exports.deletePatientRecord = async (req, res) => {
 // Get patient records by doctor (for doctors to view their patients)
 exports.getDoctorRecords = async (req, res) => {
     try {
-        const doctorId = req.params.doctorId;
+        const userId = req.params.doctorId;
 
         // Fetch all records assigned to a specific doctor
         const records = await PatientRecord.findAll({

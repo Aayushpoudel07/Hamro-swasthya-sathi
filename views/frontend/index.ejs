@@ -105,6 +105,7 @@
     .card-img {
         border-radius: 12px;
         transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+        height: 185px;
     }
 
     .card:hover .card-img {
@@ -173,59 +174,79 @@
             <p class="text-muted">Explore the variety of services we offer to cater to your needs.</p>
         </div>
         <div class="row">
-            <!-- Service 1 -->
+          <!-- Service 1 - Enhanced -->
             <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card shadow h-100 text-center">
-                    <div class="card-body">
+                <div class="card h-100 text-center border-0" 
+                    style="box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); transition: all 0.3s ease-in-out;">
+                    <div class="card-body" 
+                        onmouseover="this.parentElement.style.transform='translateY(-6px)'; this.parentElement.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.12)';" 
+                        onmouseout="this.parentElement.style.transform='translateY(0)'; this.parentElement.style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)';">
                         <div class="icon mb-3">
                             <i class="bi bi-hospital text-danger" style="font-size: 3rem;"></i>
                         </div>
-                        <h5 class="card-title">Emergency Care</h5>
-                        <p class="card-text text-muted">Available 24/7, our emergency care service is ready to handle critical situations and provide immediate treatment when you need it the most.</p>
+                        <h5 class="card-title fw-bold mb-2">Emergency Care</h5>
+                        <p class="card-text text-muted" style="font-size: 0.95rem;">
+                            Accessible around the clock, our emergency team is equipped to respond rapidly to critical health conditions, ensuring immediate and expert medical attention when it’s needed most.
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Service 2 -->
+
+            <!-- Service 2 - Enhanced -->
             <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card shadow h-100 text-center">
-                    <div class="card-body">
+                <div class="card h-100 text-center border-0"
+                    style="box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); transition: all 0.3s ease-in-out;">
+                    <div class="card-body"
+                        onmouseover="this.parentElement.style.transform='translateY(-6px)'; this.parentElement.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.12)';"
+                        onmouseout="this.parentElement.style.transform='translateY(0)'; this.parentElement.style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)';">
                         <div class="icon mb-3">
                             <i class="bi bi-person-lines-fill text-warning" style="font-size: 3rem;"></i>
                         </div>
-                        <h5 class="card-title">Consultation Services</h5>
-                        <p class="card-text text-muted">Our expert doctors are available for consultations, offering personalized care and advice for your health needs.</p>
+                        <h5 class="card-title fw-bold mb-2">Consultation Services</h5>
+                        <p class="card-text text-muted" style="font-size: 0.95rem;">
+                            Connect with our experienced medical professionals for expert consultations. We provide personalized guidance, tailored treatment plans, and compassionate care for all your health concerns.
+                        </p>
                     </div>
                 </div>
             </div>
-
-            <!-- Service 3 -->
+            <!-- Service 3 - Enhanced -->
             <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card shadow h-100 text-center">
-                    <div class="card-body">
+                <div class="card h-100 text-center border-0"
+                    style="box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); transition: all 0.3s ease-in-out;">
+                    <div class="card-body"
+                        onmouseover="this.parentElement.style.transform='translateY(-6px)'; this.parentElement.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.12)';"
+                        onmouseout="this.parentElement.style.transform='translateY(0)'; this.parentElement.style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)';">
                         <div class="icon mb-3">
                             <i class="bi bi-house-door-fill text-success" style="font-size: 3rem;"></i>
                         </div>
-                        <h5 class="card-title">Family Care</h5>
-                        <p class="card-text text-muted">Our family care services are designed to support your loved ones, offering counseling and assistance for a healthier home environment.</p>
+                        <h5 class="card-title fw-bold mb-2">Family Care</h5>
+                        <p class="card-text text-muted" style="font-size: 0.95rem;">
+                            Comprehensive support for your loved ones through counseling, guidance, and wellness services designed to foster a balanced, nurturing home environment and strengthen family bonds.
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Service 4 -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card shadow h-100 text-center">
-                    <div class="card-body">
-                        <div class="icon mb-3">
-                            <i class="bi bi-capsule text-info" style="font-size: 3rem;"></i>
-                        </div>
-                        <h5 class="card-title">AI Health Recommendations</h5>
-                        <p class="card-text text-muted">Our AI-powered symptom checker provides personalized health advice based on your symptoms, guiding you to the right care and treatment.</p>
-                    </div>
-                </div>
+
+          <!-- Service 4 - Enhanced -->
+<div class="col-lg-3 col-md-6 mb-4">
+    <div class="card h-100 text-center border-0"
+        style="box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); transition: all 0.3s ease-in-out;">
+        <div class="card-body"
+            onmouseover="this.parentElement.style.transform='translateY(-6px)'; this.parentElement.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.12)';"
+            onmouseout="this.parentElement.style.transform='translateY(0)'; this.parentElement.style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)';">
+            <div class="icon mb-3">
+                <i class="bi bi-capsule text-info" style="font-size: 3rem;"></i>
             </div>
+            <h5 class="card-title fw-bold mb-2">AI Health Recommendations</h5>
+            <p class="card-text text-muted" style="font-size: 0.95rem;">
+                Leverage our intelligent symptom checker to receive accurate, personalized health guidance. Our AI ensures you’re directed to the right care quickly, based on your unique health concerns.
+            </p>
         </div>
     </div>
+</div>
+
 </section>
 
 <!-- Category Section -->
@@ -243,7 +264,7 @@
                         <h5 class="card-title text-center">Cardiologist</h5>
                         <p class="card-text text-center">Heart & Vascular Specialist</p>
                     </div>
-                    <img src="https://picsum.photos/200/300" class="card-img" alt="Cardiology">
+                    <img src="https://drbegleycardiology.co.uk/wp-content/uploads/2017/09/Screen-Shot-2017-09-20-at-12.27.52-1080x675.png" class="card-img" alt="Cardiology">
                 </div>
             </div>
 
@@ -254,7 +275,7 @@
                         <h5 class="card-title text-center">Dermatologist</h5>
                         <p class="card-text text-center">Skin, Hair & Nail Specialist</p>
                     </div>
-                    <img src="https://picsum.photos/200/300" class="card-img" alt="Dermatology">
+                    <img src="https://www.georgiaderm.com/wp-content/uploads/2022/06/iStock-1364062170-1.jpg" class="card-img" alt="Dermatology">
                 </div>
             </div>
 
@@ -265,7 +286,7 @@
                         <h5 class="card-title text-center">Neurologist</h5>
                         <p class="card-text text-center">Brain & Nervous System Expert</p>
                     </div>
-                    <img src="https://picsum.photos/200/300" class="card-img" alt="Neurology">
+                    <img src="https://idreamcareer.com/wp-content/uploads/2023/04/how-to-become-a-neurologist.webp" class="card-img" alt="Neurology">
                 </div>
             </div>
 
@@ -276,7 +297,7 @@
                         <h5 class="card-title text-center">Orthopedic Surgeon</h5>
                         <p class="card-text text-center">Bone & Joint Specialist</p>
                     </div>
-                    <img src="https://picsum.photos/200/300" class="card-img" alt="Orthopedic">
+                    <img src="https://cdn.prod.website-files.com/6419c6455bd31b5d09bbe049/641c81bff32a256d5fc1119a_orthopedic-surgeon-in-dallas-explain-spine-surgery.jpeg" class="card-img" alt="Orthopedic">
                 </div>
             </div>
 
@@ -287,7 +308,7 @@
                         <h5 class="card-title text-center">Pediatrician</h5>
                         <p class="card-text text-center">Child Health Specialist</p>
                     </div>
-                    <img src="https://picsum.photos/200/300" class="card-img" alt="Pediatrician">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm4gZZruXJW7i4-rUpXy8f5ntzcPjHV79ZwQ&s" class="card-img" alt="Pediatrician">
                 </div>
             </div>
 
@@ -298,7 +319,7 @@
                         <h5 class="card-title text-center">Ophthalmologist</h5>
                         <p class="card-text text-center">Eye & Vision Specialist</p>
                     </div>
-                    <img src="https://picsum.photos/200/300" class="card-img" alt="Ophthalmology">
+                    <img src="https://cascadeeyeskin.com/wp-content/uploads/2023/10/what-is-the-difference-between-an-optometrist-and-an-ophthalmologist.jpg" class="card-img" alt="Ophthalmology">
                 </div>
             </div>
 
@@ -309,7 +330,7 @@
                         <h5 class="card-title text-center">Psychiatrist</h5>
                         <p class="card-text text-center">Mental Health Specialist</p>
                     </div>
-                    <img src="https://picsum.photos/200/300" class="card-img" alt="Psychiatry">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR58GYraCpnML6RQCi81dZC-1_1ajQkyqeXZg&s" class="card-img" alt="Psychiatry">
                 </div>
             </div>
 
@@ -320,7 +341,7 @@
                         <h5 class="card-title text-center">Gynecologist</h5>
                         <p class="card-text text-center">Women's Health Specialist</p>
                     </div>
-                    <img src="https://picsum.photos/200/300" class="card-img" alt="Gynecology">
+                    <img src="https://www.toplinemd.com/new-age-womens-health/wp-content/uploads/sites/100/2022/02/10-Common-Reasons-to-See-Your-Gynecologist.jpg" class="card-img" alt="Gynecology">
                 </div>
             </div>
         </div>

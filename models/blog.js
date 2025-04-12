@@ -22,6 +22,15 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: false,
             defaultValue: 'draft'
         },
+        authorId: {
+            type: Sequelize.INTEGER,
+            references: {
+                model: 'users',
+                key: 'id',
+            },
+            allowNull: true,
+            default: null
+        },
     });
 
     return Blog;

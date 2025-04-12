@@ -244,7 +244,8 @@ async function seed() {
             tags: 'Health, Winter, Tips',
             status: 'published',
             createdAt: new Date(),
-            updatedAt: new Date()
+            updatedAt: new Date(),
+            authorid: 1,
         },
         {
             title: 'Benefits of Regular Exercise',
@@ -253,7 +254,8 @@ async function seed() {
             tags: 'Exercise, Health, Fitness',
             status: 'published',
             createdAt: new Date(),
-            updatedAt: new Date()
+            updatedAt: new Date(),
+            authorid: 1,
         },
         {
             title: 'Top 10 Nutrients for a Balanced Diet',
@@ -262,7 +264,8 @@ async function seed() {
             tags: 'Diet, Nutrition, Health',
             status: 'published',
             createdAt: new Date(),
-            updatedAt: new Date()
+            updatedAt: new Date(),
+            authorid: 1,
         },
         {
             title: 'The Importance of Mental Health',
@@ -271,7 +274,8 @@ async function seed() {
             tags: 'Mental Health, Well-being, Self-care',
             status: 'draft',
             createdAt: new Date(),
-            updatedAt: new Date()
+            updatedAt: new Date(),
+            authorid: 1,
         },
         {
             title: 'Managing Stress Effectively',
@@ -280,7 +284,8 @@ async function seed() {
             tags: 'Stress, Health, Self-care',
             status: 'published',
             createdAt: new Date(),
-            updatedAt: new Date()
+            updatedAt: new Date(),
+            authorid: 1,
         },
         {
             title: 'Healthy Eating for Kids',
@@ -289,7 +294,8 @@ async function seed() {
             tags: 'Healthy Eating, Kids, Nutrition',
             status: 'draft',
             createdAt: new Date(),
-            updatedAt: new Date()
+            updatedAt: new Date(),
+            authorid: 1,
         },
         {
             title: 'How to Improve Sleep Quality',
@@ -298,7 +304,8 @@ async function seed() {
             tags: 'Sleep, Health, Tips',
             status: 'published',
             createdAt: new Date(),
-            updatedAt: new Date()
+            updatedAt: new Date(),
+            authorid: 1,
         },
         {
             title: '5 Tips for Managing Weight Effectively',
@@ -307,7 +314,8 @@ async function seed() {
             tags: 'Weight Management, Health, Fitness',
             status: 'draft',
             createdAt: new Date(),
-            updatedAt: new Date()
+            updatedAt: new Date(),
+            authorid: 1,
         },
         {
             title: 'The Benefits of Drinking Water',
@@ -316,7 +324,8 @@ async function seed() {
             tags: 'Hydration, Health, Wellness',
             status: 'published',
             createdAt: new Date(),
-            updatedAt: new Date()
+            updatedAt: new Date(),
+            authorid: 1,
         },
         {
             title: 'How to Prevent Common Illnesses',
@@ -325,7 +334,8 @@ async function seed() {
             tags: 'Health, Prevention, Tips',
             status: 'draft',
             createdAt: new Date(),
-            updatedAt: new Date()
+            updatedAt: new Date(),
+            authorid: 1,
         }
     ]);
 

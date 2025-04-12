@@ -11,15 +11,18 @@
                 <button type="button" id="clearButton" class="btn btn-secondary ml-2">Clear</button>
             </form>
             <br>
+
+            
             <!-- Display AI Answer if available -->
-            <div id="answerContainer" class="alert alert-info" style="display:none;">
-                <h5>Precautions:</h5>
-                <p id="answerText">Loading...</p>
+            <div id="answerContainer" class="alert alert-info d-none">
+                <h5 class="mb-2 fw-semibold">AI Recommended Precautions</h5>
+                <p id="answerText" class="mb-0">Loading...</p>
             </div>
+
         </div>
         <div class="col-md-8">
             <div class="container my-4 card shadow-sm">
-                <h1 class="text-center mb-4">Your Question and Precautions</h1>
+                <h1 class="text-center mb-4">Symptom Summary & Expert Recommendations</h1>
                 <div class="card text-white bg-info">
                     <div class="card-header">Your Question</div>
                     <div class="card-body">

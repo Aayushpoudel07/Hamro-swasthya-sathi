@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <h2 class="text-center mb-4">Published Blogs</h2>
-    <a href="/admin/create-blog" class="btn btn-success mb-3">Create New Blog</a>
+    <a href="/doctor/create-blog" class="btn btn-success mb-3">Create New Blog</a>
 
     <!-- Blog Table -->
     <table class="table table-bordered">
@@ -10,8 +10,7 @@
                 <th>Title</th>
                 <th>Content</th>
                 <th>Tags</th>
-                <th>Published </th>
-                <th>Author</th>
+                <th>Published At</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -23,10 +22,7 @@
                 <td><%= blog.content.slice(0, 50) + '...' %></td>
                 <td><%= blog.tags %></td>
                 <td><%= blog.status %></td>
-                <td><%= blog.author ? blog.author.name : 'Unknown' %></td>
-
                 <td>
-                    <a href="/blog/publish/<%= blog.id %>" class="btn btn-warning btn-sm">Publish</a>
                     <a href="/blog/delete/<%= blog.id %>" class="btn btn-danger btn-sm">Delete</a>
                 </td>
             </tr>

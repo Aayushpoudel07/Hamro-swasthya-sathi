@@ -46,7 +46,7 @@ exports.about = async (req, res) => {
 // doctors page
 exports.doctors = async (req, res) => {
     try {
-        const doctors = await Users.findAll({ where: { role: 'doctor' } });
+        const doctors = await Users.findAll({ where: { role: 'doctor' }, order: [['createdAt', 'DESC']] });
         res.render('frontend/doctors', { doctors });
     } catch (error) {
         res.status(500).send("Error");

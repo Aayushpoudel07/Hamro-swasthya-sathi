@@ -5,10 +5,19 @@ const bodyparser = require('body-parser');
 const session = require('express-session');
 const passport = require('./config/passport');
 const db = require('./models/index');
+const {rateLimit }= require('express-rate-limit');
 
+const limiter = rateLimit({
+	windowMs: 2 * 60 * 1000, // 2 minutes
+	limit: 100, // Limit each IP to 100 requests per `window` (here, per 2 minutes).
+	standardHeaders: 'draft-8', // draft-6: `RateLimit-*` headers; draft-7 & draft-8: combined `RateLimit` header
+	legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
+})
+app.use(limiter)
 // Set EJS as the templating engine
-app.set('view engine', 'ejs');
 
+app.set('view engine', 'ejs');
+ 
 // Set the views directory 
 app.set('views', './views');
 
@@ -32,6 +41,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(express.static('public/uploads'));
 
 app.use((req, res, next) => {
   // Check if the user is authenticated via passport

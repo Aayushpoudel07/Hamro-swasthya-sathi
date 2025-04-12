@@ -93,12 +93,25 @@
                 <div class="d-flex">
 
                     <% if (isLoggedIn) { %>
-                        <a href="/list" class="btn btn-primary me-2">Book Appointment</a>
-                        <a href="/user/dashboard" class="btn btn-secondary">Dashboard</a>
+                        <a href="/list" class="btn btn-primary me-2">
+                            <i class="fas fa-calendar-check me-2"></i> Book Appointment
+                        </a>
+                        
+                        <a href="/user/dashboard" class="btn btn-secondary">
+                            <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+                        </a>
+                        
 
-                        <a href="/auth/logout" class="btn btn-outline-light me-2">Logout</a>
+                        <a href="/auth/logout" class="btn btn-outline-light me-2">
+                            <i class="fas fa-sign-out-alt me-2"></i> Logout
+                        </a>
+                        
+                        
                         <% } else { %>
-                            <a href="/auth/login" class="btn btn-outline-light me-2">Login</a>
+                            <a href="/auth/login" class="btn btn-outline-light me-2">
+                                Login <i class="fas fa-right-to-bracket ms-2"></i>
+                            </a>
+                            
                             <% } %>
                 </div>
             </div>
@@ -109,15 +122,113 @@
         <%- body %>
     </main>
 
-    <!-- Footer Section -->
-    <footer class="bg-dark text-white py-4" style="top: 100vh;">
-        <div class="container">
-       
-            <div class="text-center mt-4">
-                <p>&copy; 2025 Hamro Swasthya Sathi. All rights reserved.</p>
+   
+<!-- Footer Section -->
+<footer class="footer bg-gradient-dark text-white py-5">
+    <div class="container">
+        <div class="row">
+            <!-- About Section -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h5 class="fw-bold text-uppercase">About Us</h5>
+                <p class="small text-light">
+                    Hamro Swasthya Sathi is devoted to providing exceptional healthcare, placing your well-being at the heart of everything we do. Your health is our utmost priority.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h5 class="fw-bold text-uppercase">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="footer-link">🏠 Home</a></li>
+                    <li><a href="#" class="footer-link">💼 Services</a></li>
+                    <li><a href="#" class="footer-link">📞 Contact Us</a></li>
+                    <li><a href="/privacy-policy" class="footer-link">📜 Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="fw-bold text-uppercase">Contact Us</h5>
+                <p><i class="fas fa-envelope me-2"></i><a href="mailto:hamroswasthyasathi@.com" class="footer-contact">hamroswasthyasathi@.com</a></p>
+                <p><i class="fas fa-phone me-2"></i><a href="tel:+977-9745867193" class="footer-contact">+977-9745867193</a></p>
+                <p><i class="fas fa-map-marker-alt me-2"></i>Kathmandu, Nepal</p>
+            </div>
+
+            <!-- Social Media / Professional Presence -->
+            <div class="col-lg-3 col-md-6">
+                <h5 class="fw-bold text-uppercase">Connect With Us</h5>
+                <div class="social-icons mt-3">
+                    <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    
+                </div>
             </div>
         </div>
-    </footer>
+
+        <hr class="bg-light my-4">
+
+        <!-- Copyright -->
+        <div class="text-center">
+            <p class="mb-0">&copy; 2025 Hamro Swasthya Sathi. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- FontAwesome for Icons -->
+<script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<!-- Custom CSS -->
+<style>
+    .bg-gradient-dark {
+        background: linear-gradient(135deg, #111 0%, #222 100%);
+    }
+
+    .footer-link {
+        display: block;
+        color: #ddd;
+        text-decoration: none;
+        padding: 5px 0;
+        transition: 0.3s;
+    }
+
+    .footer-link:hover {
+        color: #17a2b8;
+        text-decoration: underline;
+        transform: translateX(5px);
+    }
+
+    .footer-contact {
+        color: #ddd;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer-contact:hover {
+        color: #17a2b8;
+    }
+
+    .social-icon {
+        color: #ddd;
+        font-size: 1.8rem;
+        margin-right: 15px;
+        transition: transform 0.3s, color 0.3s;
+    }
+
+    .social-icon:hover {
+        color: #17a2b8;
+        transform: scale(1.2);
+    }
+
+    @media (max-width: 767px) {
+        .social-icons {
+            text-align: center;
+        }
+    }
+</style>
+
+        
+
 
 
     <!-- Bootstrap Icons -->

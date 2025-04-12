@@ -36,11 +36,11 @@
                             placeholder="Enter doctor contact number">
                     </div>
                 </div>
-                <!-- Image URL -->
+               <!-- Image Upload -->
                 <div class="mb-3 row">
-                    <label for="image" class="col-sm-2 col-form-label">Image URL</label>
+                    <label for="image" class="col-sm-2 col-form-label">Upload Image</label>
                     <div class="col-sm-10">
-                        <input type="url" name="image" class="form-control" id="image" placeholder="Enter image URL">
+                        <input type="file" name="image" class="form-control" id="image" accept="image/*">
                     </div>
                 </div>
                 <!-- Description -->
@@ -59,12 +59,30 @@
                             placeholder="Enter address"></textarea>
                     </div>
                 </div>
-                 <!-- Address -->
+                 <!-- Speciality -->
                  <div class="mb-3 row">
                     <label for="speciality" class="col-sm-2 col-form-label">Speciality</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control" name="speciality" id="speciality" rows="2"
-                            placeholder="Enter Speciality"></textarea>
+                       
+                        <select name="speciality" id="speciality" class="form-control">
+                            <option value="" selected disabled>Select Speciality</option>
+                            <option value="Cardiology">Cardiology</option>
+                            <option value="Dermatology">Dermatology</option>
+                            <option value="Endocrinology">Endocrinology</option>
+                            <option value="Gastroenterology">Gastroenterology</option>
+                            <option value="Hematology">Hematology</option>
+                            <option value="Neurology">Neurology</option>
+                            <option value="Nephrology">Nephrology</option>
+                            <option value="Oncology">Oncology</option>
+                            <option value="Ophthalmology">Ophthalmology</option>
+                            <option value="Orthopedics">Orthopedics</option>
+                            <option value="Otolaryngology">Otolaryngology (ENT)</option>
+                            <option value="Pediatrics">Pediatrics</option>
+                            <option value="Psychiatry">Psychiatry</option>
+                            <option value="Pulmonology">Pulmonology</option>
+                            <option value="Rheumatology">Rheumatology</option>
+                        </select>
+                        
                     </div>
                 </div>
                

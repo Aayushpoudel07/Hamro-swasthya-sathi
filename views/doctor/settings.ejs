@@ -5,35 +5,67 @@
     <% } %>
     <div class="row">
         <div class="col-md-6">
-            <!-- Change Password Form -->
-            <div class="card p-4">
-                <h4>Change Password</h4>
-                
-                <form action="/auth/update-password" method="POST">
-                    <div class="mb-3">
-                        <label for="currentPassword" class="form-label">Current Password</label>
-                        <input type="password" class="form-control" id="currentPassword" name="currentPassword"
-                            required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="newPassword" class="form-label">New Password</label>
-                        <input type="password" class="form-control" id="newPassword" name="newPassword" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="confirmPassword" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
-                            required>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">Update Password</button>
-                </form>
+    <!-- Change Password Form -->
+    <div class="card p-4">
+        <h4>Change Password</h4>
+        
+        <form id="changePasswordForm" action="/auth/change-password" method="POST" onsubmit="return validatePasswordForm()">
+            <div class="mb-3">
+                <label for="currentPassword" class="form-label">Current Password</label>
+                <input type="password" class="form-control" id="currentPassword" name="currentPassword" required>
             </div>
-        </div>
+            <div class="mb-3">
+                <label for="newPassword" class="form-label">New Password</label>
+                <input type="password" class="form-control" id="newPassword" name="newPassword" required>
+            </div>
+            <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Update Password</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Client-side form validation
+    function validatePasswordForm() {
+        const currentPassword = document.getElementById("currentPassword").value;
+        const newPassword = document.getElementById("newPassword").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+
+        // Check if the new password and confirm password match
+        if (newPassword !== confirmPassword) {
+            alert("New Password and Confirm Password do not match.");
+            return false;
+        }
+
+        // Check if new password meets basic criteria (e.g., length, complexity)
+        if (newPassword.length < 8) {
+            alert("New password must be at least 8 characters long.");
+            return false;
+        }
+
+        // Optionally, you can add more password validation checks here (e.g., requiring numbers, symbols, etc.)
+
+        // If all checks pass, the form will be submitted
+        return true;
+    }
+</script>
+<!-- Toastify CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+<!-- Toastify JS -->
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+
+
 
         <div class="col-md-6">
             <!-- Update User Details Form -->
             <div class="card p-4">
                 <h4>Update User Details</h4>
-                <form action="/auth/update-user" method="POST">
+                <form action="/auth/update-user" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="fullName" class="form-label">Full Name</label>
                         <input type="text" class="form-control" id="fullName" name="name" value="<%= user.name %>"
@@ -50,7 +82,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">Profile Image</label>
-                        <input type="url" class="form-control" id="image" name="image" value="<%= user.image %>"
+                        <input type="file" class="form-control" id="image" name="image" value="<%= user.image %>"
                             placeholder="Enter image URL">
                     </div>
                     <div class="mb-3">
