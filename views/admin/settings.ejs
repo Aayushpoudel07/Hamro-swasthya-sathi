@@ -1,8 +1,10 @@
 <div class="container mt-5">
     <h2 class="text-center">User Settings</h2>
-    <% if (typeof message !== 'undefined' && message) { %>
-        <p class="text-danger text-center text-bold"><%= message %></p> 
+    <% if (typeof messages.success !== 'undefined' && messages.success) { %>
+        <div class="alert alert-success"><%= messages.success %></div>
+
     <% } %>
+
     <div class="row">
         <div class="col-md-6">
             <!-- Change Password Form -->
@@ -33,6 +35,7 @@
             <!-- Update User Details Form -->
             <div class="card p-4">
                 <h4>Update User Details</h4>
+               
                 <form action="/auth/update-user" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="fullName" class="form-label">Full Name</label>
@@ -42,7 +45,7 @@
 
                     <div class="mb-3">
                         <label for="phone" class="form-label">Phone Number</label>
-                        <input type="text" class="form-control" id="phone" value="<%= user.contact %>" name="contact">
+                        <input type="number" class="form-control" id="phone" value="<%= user.contact %>" name="contact">
                     </div>
                     <div class="mb-3">
                         <label for="address" class="form-label">Address</label>
