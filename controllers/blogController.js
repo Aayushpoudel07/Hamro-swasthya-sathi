@@ -84,6 +84,7 @@ exports.update = async (req, res) => {
         const blog = await Blog.findByPk(req.params.id);
 
         await blog.update({ title, content, image, tags });
+        req.flash('success', 'blog Updated successfully!');
         res.redirect(`/admin/blogs/${blog.id}`); 
     } catch (error) {
         res.status(500).json({ error: 'Failed to update blog' });
@@ -96,6 +97,7 @@ exports.destroy = async (req, res) => {
         const blog = await Blog.findByPk(req.params.id);
 
         await blog.destroy();
+        req.flash('success', 'blog deleted successfully!');
         res.redirect('/admin/blogs'); 
     } catch (error) {
         res.status(500).json({ error: 'Failed to delete blog' });

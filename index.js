@@ -6,6 +6,7 @@ const session = require('express-session');
 const passport = require('./config/passport');
 const db = require('./models/index');
 const {rateLimit }= require('express-rate-limit');
+const flash = require('connect-flash');
 
 const limiter = rateLimit({
 	windowMs: 2 * 60 * 1000, // 2 minutes
@@ -43,6 +44,8 @@ app.use(passport.session());
 
 app.use(express.static('public/uploads'));
 
+app.use(flash());
+
 app.use((req, res, next) => {
   // Check if the user is authenticated via passport
   res.locals.isLoggedIn = req.isAuthenticated() ? true : false; // passport.js will handle user authentication
@@ -69,6 +72,11 @@ app.use((req, res, next) => {
   else {
     res.locals.layout = './layouts/main';
   }
+  next();
+});
+
+app.use((req, res, next) => {
+  res.locals.messages = req.flash();
   next();
 });
 

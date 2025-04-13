@@ -1,5 +1,5 @@
 
-const { Users, Appointment } = require('../models');
+const { Users, Appointment, Blog } = require('../models');
 const bcrypt = require('bcrypt');
 const { sequelize } = require('../models');
 
@@ -10,6 +10,8 @@ exports.dashboard = async (req, res) => {
     const doctorCount = await Users.count({ where: { role: 'doctor' } });
     const hospitalCount = await Users.count({ where: { role: 'hospital' } });
     const appointmentCount = await Appointment.count();
+    const blogsCount = await Blog.count();
+
 
     const userRegistrations = await Users.findAll({
       attributes: [
@@ -34,6 +36,7 @@ exports.dashboard = async (req, res) => {
       hospitalCount,
       appointmentCount,
       labels,
+      blogsCount,
       data
     });
   } catch (error) {
