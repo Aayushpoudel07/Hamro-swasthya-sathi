@@ -1,22 +1,27 @@
 <div class="container mt-5">
-    <h2 class="text-center">Create a New Blog</h2>
-    <form action="/admin/create-blog" method="POST" enctype="multipart/form-data">
-        <div class="mb-3">
-            <label for="title" class="form-label">Blog Title</label>
-            <input type="text" class="form-control" id="title" name="title" required>
+    <div class="card">
+        <div class="card-body">
+            <h2 class="text-center">Create a New Blog</h2>
+            <form action="/admin/create-blog" method="POST" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Blog Title</label>
+                    <input type="text" class="form-control" id="title" name="title" required>
+                </div>
+                <div class="mb-3">
+                    <label for="content" class="form-label">Content</label>
+                    <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image URL</label>
+                    <input type="file" class="form-control" id="image" name="image">
+                </div>
+                <div class="mb-3">
+                    <label for="tags" class="form-label">Tags</label>
+                    <input type="text" class="form-control" id="tags" name="tags">
+                </div>
+                <button type="submit" class="btn btn-primary">Create Blog</button>
+            </form>
         </div>
-        <div class="mb-3">
-            <label for="content" class="form-label">Content</label>
-            <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
-        </div>
-        <div class="mb-3">
-            <label for="image" class="form-label">Image URL</label>
-            <input type="file" class="form-control" id="image" name="image">
-        </div>
-        <div class="mb-3">
-            <label for="tags" class="form-label">Tags</label>
-            <input type="text" class="form-control" id="tags" name="tags">
-        </div>
-        <button type="submit" class="btn btn-primary">Create Blog</button>
-    </form>
+        
+    </div>
 </div>
