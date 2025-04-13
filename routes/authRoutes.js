@@ -15,5 +15,5 @@ router.get('/forgot-password', authController.forgotPassword);
 router.post('/forgot-password', authController.forgotPasswordSubmit);
 router.post('/reset-password', authController.resetPassword);
 router.post('/change-password',authMiddleware, authController.changePassword);
-router.post('/update-user',authMiddleware, authController.updateUser);
+router.post('/update-user',authMiddleware, uploadMiddleware.single('image'), authController.updateUser);
 module.exports = router;
