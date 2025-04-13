@@ -9,7 +9,6 @@ const uploadMiddleware = require('../middleware/uploadMiddleware');
 
 // Routes
 router.get('/dashboard', authMiddleware,adminMiddleware, adminController.dashboard);
-router.get('/hospitals', authMiddleware, adminMiddleware,adminController.hospitals);
 router.get('/users', authMiddleware, adminMiddleware,adminController.users);
 router.get('/doctors', authMiddleware,adminMiddleware, adminController.doctors);
 
@@ -22,4 +21,11 @@ router.get('/create-blog', authMiddleware, adminMiddleware,blogController.create
 router.post('/create-blog', authMiddleware, uploadMiddleware.single('image'), adminMiddleware,blogController.store);
 
 router.get('/settings', authMiddleware, adminMiddleware,adminController.settings);
+
+// delete user
+router.get('/delete-user/:id', authMiddleware, adminMiddleware,adminController.deleteUser);
+
+// update user
+router.post('/update-user',authMiddleware, uploadMiddleware.single('image'), adminController.updateUser);
+
 module.exports = router;

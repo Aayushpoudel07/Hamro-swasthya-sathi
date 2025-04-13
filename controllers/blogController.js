@@ -114,20 +114,12 @@ exports.publishBlog = async (req, res) => {
     }
 };
 
-// Show single blog
+// single blog
 exports.show = async (req, res) => {
-    const { id } = req.params;
-    try {
-        const blog = await Blog.findByPk(id);
-
-        if (!blog) {
-            return res.status(404).json({ error: 'Blog not found' });
-        }
-
-        res.render('frontend/blogDetails', { blog });
+    try {    
+        const blog = await Blog.findByPk(req.params.id);
+        res.render('frontend/blogDetails', { blog }); 
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'An error occurred while fetching the blog' });
+        res.status(500).json({ error: 'Failed to load blog' });
     }
 };
-
