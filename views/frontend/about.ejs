@@ -43,6 +43,38 @@
         transform: scale(1.05); /* Slightly enlarges the button */
         transition: all 0.3s ease; /* Smooth transition */
     }
+    /* Mission/Vision Section */
+    .mission-vision {
+        padding: 20px 0;
+        background-color: #fff;
+    }
+
+    .mission-vision h2 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .mission-vision .card {
+        border: none;
+        background: #f8f9fa;
+        padding: 30px;
+        border-radius: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 20px;
+    }
+
+    .mission-vision .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .mission-vision .card h3 {
+        font-size: 1.8rem;
+        color: #1abc9c;
+    }
 </style>
 
 
@@ -69,6 +101,30 @@
         </div>
     </div>
 </section>
+
+<!-- Mission & Vision Section -->
+<section class="mission-vision">
+    <div class="container">
+        <h2>Our Purpose</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <h3>Our Mission</h3>
+                    <p>To create impactful solutions that drive progress, foster collaboration, and inspire positive
+                        change in the world.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <h3>Our Vision</h3>
+                    <p>To be a global leader in innovation, transforming ideas into reality with creativity and
+                        excellence.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Services Section -->
 <section class="py-5 bg-light">
     <div class="container">

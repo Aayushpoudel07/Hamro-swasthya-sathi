@@ -10,7 +10,7 @@
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card shadow-lg border-0 rounded-4 h-100 overflow-hidden">
                     <div class="position-relative">
-                        <img src="<%= user.image %>" class="card-img-top rounded-circle mx-auto d-block mt-3"
+                        <img src="/<%= user.image %>" class="card-img-top rounded-circle mx-auto d-block mt-3"
                             style="width: 150px; height: 150px; object-fit: cover; border: 4px solid #6a11cb;"
                             alt="Doctor Image">
                     </div>
@@ -19,17 +19,16 @@
                             <h5 class="card-title fw-bold text-dark"><%= user.name %></h5>
                         </a>
                         <p class="text-primary fw-semibold"><%= user.speciality %></p>
-                        <p class="mb-2">
-                            <span class="text-warning">
-                                <% for(let i = 0; i < user.rating; i++) { %> &#9733; <% } %>
-                                <% for(let i = user.rating; i < 5; i++) { %> &#9734; <% } %>
-                            </span>
-                            (<%= user.reviewsCount %> Reviews)
-                        </p>
-                        <div class="d-flex justify-content-center gap-3">
+                        
+                        <!-- <div class="d-flex justify-content-center gap-3">
                             <a href="#" class="text-primary"><i class="fab fa-facebook"></i></a>
                             <a href="#" class="text-info"><i class="fab fa-twitter"></i></a>
                             <a href="#" class="text-danger"><i class="fab fa-instagram"></i></a>
+                        </div> -->
+                        <div class="d-flex justify-content-center gap-3">
+                            <p>
+                                <i class="fas fa-map-marker-alt"></i> <%= user.address %>
+                            </p>
                         </div>
                     </div>
                     <div class="card-footer bg-white border-0 text-center pb-3">
