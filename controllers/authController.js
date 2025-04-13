@@ -197,7 +197,7 @@ exports.resetPassword = async (req, res) => {
 
 exports.changePassword = async (req, res) => {
     try {
-        const { currentPassword, newPassword, confirmPassword } = req.body; 
+        const { currentPassword, newPassword, confirmPassword } = req.body;
 
         // Check if passwords match
         if (newPassword !== confirmPassword) {
@@ -222,13 +222,13 @@ exports.changePassword = async (req, res) => {
         await user.save();
 
         // Redirect to login page
+        req.flash('success', 'Password changed successfully!');
         res.redirect('back');
     } catch (error) {
         console.error("Error during registration:", error);
         res.status(500).send("Error");
     }
 }
-
 
 exports.updateUser = async (req, res) => {
     try {
