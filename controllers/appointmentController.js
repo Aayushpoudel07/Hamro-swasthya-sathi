@@ -123,6 +123,7 @@ exports.changeStatus = async (req, res) => {
         }
 
         // Redirect back after sending email
+        req.flash('success', 'Status updated successfully!');
         res.redirect('back');
     } catch (error) {
         console.error("Error updating status:", error);
@@ -168,9 +169,23 @@ exports.cancelAppointment = async (req, res) => {
         await sendEmail(adminEmail, adminSubject, adminText, adminHtml);
 
         // Return response
-        res.status(200).send('Appointment cancelled successfully.');
+        req.flash('success', 'Appointment cancelled successfully!');
+        res.redirect('back');
     } catch (error) {
         console.error('Error cancelling appointment:', error);
         res.status(500).send('Error cancelling appointment');
+    }
+};
+
+// delete
+exports.deleteAppointment = async (req, res) => {
+    try {
+        const { id } = req.params;
+        await Appointment.destroy({ where: { id } });
+        req.flash('success', 'Appointment deleted successfully!');
+        res.redirect('back');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Error deleting appointment");
     }
 };
