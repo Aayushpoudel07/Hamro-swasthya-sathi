@@ -229,10 +229,13 @@ exports.changePassword = async (req, res) => {
     }
 }
 
+
 exports.updateUser = async (req, res) => {
     try {
-        const { name, contact, address, image, description,speciality } = req.body;
-        
+        const { name, contact, address, description, speciality } = req.body;
+        const image = req.file ? req.file.filename : null;
+
+
         // Find the user
         const user = await Users.findOne({ where: { id: req.user.id } });
         if (!user) {
@@ -246,10 +249,11 @@ exports.updateUser = async (req, res) => {
         user.image = image || user.image;
         user.description = description || user.description;
         user.speciality = speciality || user.speciality;
-        
-        await user.save();
 
-        res.redirect('back'); 
+        await user.save();
+       
+        req.flash('success', 'User details updated successfully!');
+        res.redirect('back');
     } catch (error) {
         console.error("Error updating user details:", error);
         res.status(500).send("Error updating user details");
