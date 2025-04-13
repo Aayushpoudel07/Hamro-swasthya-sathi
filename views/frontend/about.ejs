@@ -37,6 +37,12 @@
         text-align: center;
         padding: 50px 20px;
     }
+    .cta-section .btn:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+        color: white; /* Text turns white */
+        transform: scale(1.05); /* Slightly enlarges the button */
+        transition: all 0.3s ease; /* Smooth transition */
+    }
 </style>
 
 
@@ -71,90 +77,98 @@
             <p class="text-muted">Explore the variety of services we offer to cater to your needs.</p>
         </div>
         <div class="row">
-          <!-- Service 1 - Enhanced -->
+          <!-- Service 1 - Enhanced Professional Card -->
             <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card h-100 text-center border-0" 
-                    style="box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); transition: all 0.3s ease-in-out;">
-                    <div class="card-body" 
-                        onmouseover="this.parentElement.style.transform='translateY(-6px)'; this.parentElement.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.12)';" 
-                        onmouseout="this.parentElement.style.transform='translateY(0)'; this.parentElement.style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)';">
+                <div class="card h-100 text-center border-0 shadow-sm" 
+                    style="transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <div class="card-body"
+                        onmouseover="this.closest('.card').style.transform='translateY(-6px)'; this.closest('.card').style.boxShadow='0 10px 25px rgba(0, 0, 0, 0.12)';"
+                        onmouseout="this.closest('.card').style.transform='translateY(0)'; this.closest('.card').style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)';">
                         <div class="icon mb-3">
-                            <i class="bi bi-hospital text-danger" style="font-size: 3rem;"></i>
+                            <i class="bi bi-hospital text-danger" style="font-size: 2.75rem;"></i>
                         </div>
-                        <h5 class="card-title fw-bold mb-2">Emergency Care</h5>
-                        <p class="card-text text-muted" style="font-size: 0.95rem;">
-                            Accessible around the clock, our emergency team is equipped to respond rapidly to critical health conditions, ensuring immediate and expert medical attention when it’s needed most.
+                        <h5 class="card-title fw-semibold mb-2 text-dark">Emergency Care</h5>
+                        <p class="card-text text-muted" style="font-size: 0.95rem; line-height: 1.6;">
+                            Our 24/7 emergency unit is equipped to deliver prompt, expert care for critical health needs, ensuring timely and reliable medical support when every second counts.
                         </p>
                     </div>
                 </div>
             </div>
+
 
 
             <!-- Service 2 - Enhanced -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card h-100 text-center border-0"
-                    style="box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); transition: all 0.3s ease-in-out;">
-                    <div class="card-body"
-                        onmouseover="this.parentElement.style.transform='translateY(-6px)'; this.parentElement.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.12)';"
-                        onmouseout="this.parentElement.style.transform='translateY(0)'; this.parentElement.style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)';">
-                        <div class="icon mb-3">
-                            <i class="bi bi-person-lines-fill text-warning" style="font-size: 3rem;"></i>
+           
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card h-100 text-center border-0 shadow-sm"
+                        style="transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <div class="card-body"
+                            onmouseover="this.closest('.card').style.transform='translateY(-6px)'; this.closest('.card').style.boxShadow='0 10px 25px rgba(0, 0, 0, 0.12)';"
+                            onmouseout="this.closest('.card').style.transform='translateY(0)'; this.closest('.card').style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)';">
+                            <div class="icon mb-3">
+                                <i class="bi bi-person-lines-fill text-warning" style="font-size: 2.75rem;"></i>
+                            </div>
+                            <h5 class="card-title fw-semibold mb-2 text-dark">Consultation Services</h5>
+                            <p class="card-text text-muted" style="font-size: 0.95rem; line-height: 1.6;">
+                                Get expert advice from our healthcare specialists. We offer personalized consultations and tailored treatment plans to support your well-being with care and precision.
+                            </p>
                         </div>
-                        <h5 class="card-title fw-bold mb-2">Consultation Services</h5>
-                        <p class="card-text text-muted" style="font-size: 0.95rem;">
-                            Connect with our experienced medical professionals for expert consultations. We provide personalized guidance, tailored treatment plans, and compassionate care for all your health concerns.
-                        </p>
                     </div>
                 </div>
-            </div>
+
             <!-- Service 3 - Enhanced -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card h-100 text-center border-0"
-                    style="box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); transition: all 0.3s ease-in-out;">
-                    <div class="card-body"
-                        onmouseover="this.parentElement.style.transform='translateY(-6px)'; this.parentElement.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.12)';"
-                        onmouseout="this.parentElement.style.transform='translateY(0)'; this.parentElement.style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)';">
-                        <div class="icon mb-3">
-                            <i class="bi bi-house-door-fill text-success" style="font-size: 3rem;"></i>
+            
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card h-100 text-center border-0 shadow-sm"
+                        style="transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <div class="card-body"
+                            onmouseover="this.closest('.card').style.transform='translateY(-6px)'; this.closest('.card').style.boxShadow='0 10px 25px rgba(0, 0, 0, 0.12)';"
+                            onmouseout="this.closest('.card').style.transform='translateY(0)'; this.closest('.card').style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)';">
+                            <div class="icon mb-3">
+                                <i class="bi bi-house-door-fill text-success" style="font-size: 2.75rem;"></i>
+                            </div>
+                            <h5 class="card-title fw-semibold mb-2 text-dark">Family Care</h5>
+                            <p class="card-text text-muted" style="font-size: 0.95rem; line-height: 1.6;">
+                                Offering holistic care for your family’s well-being, our services provide counseling, wellness programs, and guidance to nurture a supportive and harmonious family environment.
+                            </p>
                         </div>
-                        <h5 class="card-title fw-bold mb-2">Family Care</h5>
-                        <p class="card-text text-muted" style="font-size: 0.95rem;">
-                            Comprehensive support for your loved ones through counseling, guidance, and wellness services designed to foster a balanced, nurturing home environment and strengthen family bonds.
-                        </p>
                     </div>
                 </div>
-            </div>
+
 
 
           <!-- Service 4 - Enhanced -->
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card h-100 text-center border-0"
-                style="box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); transition: all 0.3s ease-in-out;">
-                <div class="card-body"
-                    onmouseover="this.parentElement.style.transform='translateY(-6px)'; this.parentElement.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.12)';"
-                    onmouseout="this.parentElement.style.transform='translateY(0)'; this.parentElement.style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)';">
-                    <div class="icon mb-3">
-                        <i class="bi bi-capsule text-info" style="font-size: 3rem;"></i>
+        
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card h-100 text-center border-0 shadow-sm"
+                    style="transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <div class="card-body"
+                        onmouseover="this.closest('.card').style.transform='translateY(-6px)'; this.closest('.card').style.boxShadow='0 10px 25px rgba(0, 0, 0, 0.12)';"
+                        onmouseout="this.closest('.card').style.transform='translateY(0)'; this.closest('.card').style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)';">
+                        <div class="icon mb-3">
+                            <i class="bi bi-capsule text-info" style="font-size: 2.75rem;"></i>
+                        </div>
+                        <h5 class="card-title fw-semibold mb-2 text-dark">AI Health Recommendations</h5>
+                        <p class="card-text text-muted" style="font-size: 0.95rem; line-height: 1.6;">
+                            Harness the power of AI to receive tailored health insights and recommendations. Our intelligent system analyzes your symptoms and directs you to the right care, ensuring personalized and timely health support.
+                        </p>
                     </div>
-                    <h5 class="card-title fw-bold mb-2">AI Health Recommendations</h5>
-                    <p class="card-text text-muted" style="font-size: 0.95rem;">
-                        Leverage our intelligent symptom checker to receive accurate, personalized health guidance. Our AI ensures you’re directed to the right care quickly, based on your unique health concerns.
-                    </p>
                 </div>
             </div>
-        </div>
+
 
 </section>
+
  <!-- Our Team -->
  <div class="container my-5">
-    <h3 class="text-center mb-4">Our Team</h3>
+    <h3 class="text-center mb-4">Meet Our Team</h3>
     <div class="row">
         <div class="col-md-4">
             <div class="card text-center p-2 shadow-sm">
                 <img src="https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" class="card-img-top" alt="Team Member">
                 <div class="card-body">
                     <h5 class="card-title">Raman Nath</h5>
-                    <p class="card-text">CEO</p>
+                    <p class="card-text">Chief Executive Officer</p>
                 </div>
             </div>
         </div>
@@ -163,7 +177,7 @@
                 <img src="https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" class="card-img-top" alt="Team Member">
                 <div class="card-body">
                     <h5 class="card-title">Tika Thamsuhang</h5>
-                    <p class="card-text">CTO</p>
+                    <p class="card-text">Head of Technology</p>
                 </div>
             </div>
         </div>
@@ -180,8 +194,8 @@
 </div>
 
 <section class="cta-section">
-    <h2>Join Us on Our Journey</h2>
-    <p class="lead">Want to learn more? Get in touch and be a part of our story!</p>
+    <h2>Be a part of our journey. Join us today.</h2>
+    <p class="lead">Learn more and join our journey. Get in touch today!</p>
     <a href="/contact" class="btn btn-light btn-lg">Contact Us</a>
 </section>
 
