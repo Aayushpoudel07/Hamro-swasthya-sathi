@@ -324,7 +324,9 @@
             const question = $('#question').val();
 
             // Show loading message
-            $('#answerText').text('Loading...');  // Show "Loading..."
+            $('#answerText').html(`<div class="spinner-border" role="status">
+  <span class="sr-only">Loading...</span>
+</div>`);  // Show "Loading..."
             $('#answerContainer').show();  // Ensure the answer container is visible while loading
             $('#doctorsSection').show();  // Hide the doctors section
 
@@ -348,7 +350,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <!-- Doctor Image -->
-                                        <img src="${doctor.image || '/path/to/default/image.jpg'}" alt="${doctor.name}'s image" class="doctor-img">
+                                        <img src="/${doctor.image || '/path/to/default/image.jpg'}" alt="${doctor.name}'s image" class="doctor-img">
                                         <a href="/list/${doctor.id}" class="text-decoration-none">
                                             <h5 class="card-title fw-bold text-dark">${doctor.name}</h5>
                                         </a>
@@ -364,7 +366,7 @@
 
 
                         // Append doctors to the UI
-                        $('#doctorsSection').html(doctorsHtml);  // Ensure you have a div with id="doctorsSection"
+                        $('#doctorsRow').html(doctorsHtml);  // Ensure you have a div with id="doctorsSection"
                         $('#doctorsSection').show();  // Show the doctors section
                     } else {
                         $('#doctorsSection').html('<p>No doctors available at the moment.</p>');
