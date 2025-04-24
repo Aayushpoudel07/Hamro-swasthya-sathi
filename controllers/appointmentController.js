@@ -1,5 +1,5 @@
 const {sendEmail} = require("../config/mailer");
-const { Appointment } = require("../models");
+const { Appointment, Users } = require("../models");
 
 // Appointment page
 exports.index = async (req, res) => {
@@ -124,7 +124,8 @@ exports.changeStatus = async (req, res) => {
 
         // Redirect back after sending email
         req.flash('success', 'Status updated successfully!');
-        res.redirect('back');
+        const backURL = req.header('Referer') || '/';
+        res.redirect(backURL);
     } catch (error) {
         console.error("Error updating status:", error);
         res.status(500).send("Error updating status");
@@ -170,7 +171,8 @@ exports.cancelAppointment = async (req, res) => {
 
         // Return response
         req.flash('success', 'Appointment cancelled successfully!');
-        res.redirect('back');
+        const backURL = req.header('Referer') || '/';
+        res.redirect(backURL);
     } catch (error) {
         console.error('Error cancelling appointment:', error);
         res.status(500).send('Error cancelling appointment');
@@ -183,7 +185,8 @@ exports.deleteAppointment = async (req, res) => {
         const { id } = req.params;
         await Appointment.destroy({ where: { id } });
         req.flash('success', 'Appointment deleted successfully!');
-        res.redirect('back');
+        const backURL = req.header('Referer') || '/';
+        res.redirect(backURL);
     } catch (error) {
         console.error(error);
         res.status(500).send("Error deleting appointment");

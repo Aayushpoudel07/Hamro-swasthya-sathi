@@ -3,6 +3,10 @@ const { Users, Appointment, Blog } = require('../models');
 const bcrypt = require('bcrypt');
 const { sequelize } = require('../models');
 
+       
+
+
+
 // admin dashboard
 exports.dashboard = async (req, res) => {
   try {
@@ -58,21 +62,14 @@ exports.users = async (req, res) => {
 // Doctors page
 exports.doctors = async (req, res) => {
   try {
-    const doctors = await Users.findAll({ where: { role: 'doctor' } });
+    const doctors = await Users.findAll({ where: { role: 'doctor' } , order: [['createdAt', 'DESC']]});
     res.render('admin/doctors', { doctors });
   } catch (error) {
     res.status(500).send("Error loading doctors page.");
   }
 };
 
-// Create hospital page
-exports.createHospital = async (req, res) => {
-  try {
-    res.render('admin/create-hospital');
-  } catch (error) {
-    res.status(500).send("Error loading create hospital page.");
-  }
-};
+
 
 // Create user page
 exports.createUser = async (req, res) => {
@@ -163,7 +160,8 @@ exports.deleteUser = async (req, res) => {
     const { id } = req.params;
     await Users.destroy({ where: { id } });
     req.flash('success', 'User deleted successfully');
-    res.redirect('back');
+    const backURL = req.header('Referer') || '/';
+    res.redirect(backURL);
 
   } catch (error) {
     console.error(error);
@@ -194,7 +192,8 @@ exports.updateUser = async (req, res) => {
       await user.save();
      
       req.flash('success', 'User details updated successfully!');
-      res.redirect('back');
+      const backURL = req.header('Referer') || '/';
+      res.redirect(backURL);
   } catch (error) {
       console.error("Error updating user details:", error);
       res.status(500).send("Error updating user details");

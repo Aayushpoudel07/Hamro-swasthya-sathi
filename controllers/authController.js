@@ -94,7 +94,8 @@ exports.loginNow = (req, res, next) => {
             }
             else {
                 // return back 
-                res.redirect('back');
+                const backURL = req.header('Referer') || '/';
+        res.redirect(backURL);
 
                 // return res.redirect('/user/dashboard');
             }
@@ -108,7 +109,7 @@ exports.logout = (req, res) => {
         if (err) {
             return res.status(500).send("Error logging out.");
         }
-        res.redirect('/auth/login');
+        res.redirect('/');
     });
 };
 
@@ -223,7 +224,8 @@ exports.changePassword = async (req, res) => {
 
         // Redirect to login page
         req.flash('success', 'Password changed successfully!');
-        res.redirect('back');
+        const backURL = req.header('Referer') || '/';
+        res.redirect(backURL);
     } catch (error) {
         console.error("Error during registration:", error);
         res.status(500).send("Error");
@@ -253,7 +255,8 @@ exports.updateUser = async (req, res) => {
         await user.save();
        
         req.flash('success', 'User details updated successfully!');
-        res.redirect('back');
+        const backURL = req.header('Referer') || '/';
+        res.redirect(backURL);
     } catch (error) {
         console.error("Error updating user details:", error);
         res.status(500).send("Error updating user details");

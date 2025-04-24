@@ -110,6 +110,7 @@ exports.publishBlog = async (req, res) => {
         const blog = await Blog.findByPk(req.params.id);
 
         await blog.update({ status: 'published' });
+        req.flash('success', 'blog Published successfully!');
         res.redirect('/admin/blogs'); 
     } catch (error) {
         res.status(500).json({ error: 'Failed to publish blog' });
